@@ -17,6 +17,7 @@
 [ ] [go-config](https://github.com/micro/go-config)
 [ ] [gorca](https://github.com/icub3d/gorca)
 [ ] [爬虫：将网页中图片存入mysql数据库中](https://github.com/ArronYR/GO_CrawlData_MySQL)
+[ ] [代码分析guuid](https://github.com/dreamans/guuid)
 
 ### 项目
 #### 消息服务
