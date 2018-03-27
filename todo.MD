@@ -1,41 +1,29 @@
 ### 最基本的入门教程
 
 - [x] [官方学习指南](https://tour.go-zh.org/list)
-
 - [x] [gobyexample](https://gobyexample.com)
-
-[ ] [ls-go](https://github.com/acarl005/ls-go)
-
+- [ ] [ls-go](https://github.com/acarl005/ls-go)
 - [x] [golang中间件](https://gocn.io/question/1703)
-
-- [x] [GoProxyCollector](https://github.com/AceDarkknight/GoProxyCollector)借着这个项目，研究代理
-
-[ ] [https://github.com/hapiman/schematyper](https://github.com/hapiman/schematyper)
-
-[ ] [gendry滴滴ORM](https://github.com/didi/gendry)
-[ ] [mou](https://github.com/Bestfeel/mou?utm_source=gold_browser_extension)
-[ ] [DownLoadNetEaseMusic](https://github.com/SugarAYuan/golang-DownLoadNetEaseMusic)
-[ ] [ft](https://github.com/hapiman/ft)
-[ ] [go-config](https://github.com/micro/go-config)
-[ ] [gorca](https://github.com/icub3d/gorca)
-[ ] [爬虫：将网页中图片存入mysql数据库中](https://github.com/ArronYR/GO_CrawlData_MySQL)
-[ ] [代码分析guuid](https://github.com/dreamans/guuid)
+- [ ] [GoProxyCollector](https://github.com/AceDarkknight/GoProxyCollector)借着这个项目，研究代理
+- [ ] [https://github.com/hapiman/schematyper](https://github.com/hapiman/schematyper)
+- [ ] [gendry滴滴ORM](https://github.com/didi/gendry)
+- [ ] [mou](https://github.com/Bestfeel/mou?utm_source=gold_browser_extension)
+- [ ] [DownLoadNetEaseMusic](https://github.com/SugarAYuan/golang-DownLoadNetEaseMusic)
+- [ ] [ft](https://github.com/hapiman/ft)
+- [ ] [go-config](https://github.com/micro/go-config)
+- [ ] [gorca](https://github.com/icub3d/gorca)
+- [ ] [爬虫：将网页中图片存入mysql数据库中](https://github.com/ArronYR/GO_CrawlData_MySQL)
+- [ ] [代码分析guuid](https://github.com/dreamans/guuid)
 
 ### 项目
 #### 消息服务
 使用框架 gin + mysql + mq实现
-
-[x] mysql连接
-
-[x] golang连接zookeeper[x]
-
-[x] http请求处理[x]
-
-[ ] 数据有效性验证等
-
-[ ] MQ连接相关
-
-[ ] 环境如何分割
+- [x] mysql连接
+- [x] golang连接zookeeper[x]
+- [x] http请求处理[x]
+- [ ] 数据有效性验证等
+- [ ] MQ连接相关
+- [ ] 环境如何分割
 
 ### docker相关
 
