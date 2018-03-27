@@ -1,12 +1,14 @@
 ### 最基本的入门教程
 
-[X] [官方学习指南](https://tour.go-zh.org/list)
+- [x] [官方学习指南](https://tour.go-zh.org/list)
 
-[x] [gobyexample](https://gobyexample.com)
+- [x] [gobyexample](https://gobyexample.com)
 
 [ ] [ls-go](https://github.com/acarl005/ls-go)
 
-[X] [golang中间件](https://gocn.io/question/1703)
+- [x] [golang中间件](https://gocn.io/question/1703)
+
+- [x] [GoProxyCollector](https://github.com/AceDarkknight/GoProxyCollector)借着这个项目，研究代理
 
 [ ] [https://github.com/hapiman/schematyper](https://github.com/hapiman/schematyper)
 

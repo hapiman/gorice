@@ -15,6 +15,7 @@
 * 发布镜像
 `docker image build -t [username]/[repository]:[tag]`
 `docker image push [username]/[repository]:[tag]`
+* 使用`tag`命令添加镜像标签，指向同一镜像文件 `docker tag ubuntu:lastest myubuntu:lastest`
 * 运行某个image文件`docker container run [image name]`，`docker container run`命令具有自动抓取`image`文件的功能
 * 手动停止某一个命令`docker container kill [containID]`
 * 查看docker中正在运行着的程序`docker ps -a`
@@ -29,5 +30,11 @@
 * 容器终止后自动删除容器文件，使用`-rm`参数，`docker container run --rm -p 8000:3000 -it koa-demo /bin/bash`
 * 关于容器的`CMD`命令
 如何区分`CMD`和`RUN`命令， `RUN`命令会在`image`文件构建阶段执行，执行的结果会打包进入image文件；`CMD`文件会在容器启动之后执行。一个`Dockerfile`可以包含多个`RUN`命令，但是只能有一个`CMD`命令，指定了`CMD`命令之后，`docker container run`命令就不能够福建命令额，否者会覆盖`CMD`命令。
-
-
+* 如何进入容器
+```sh
+docker exec -it  [container_name/container_id] /bin/bash
+// -i 打开标准输入接受用户的输入
+// -t 让docker分配一个伪终端(pseudo-tty)，并绑定到容器的标准输入上
+// -u 执行命令的用户
+```
+* 挂载一个主机目录作为数据卷 `docker run -it -v /src/webapp(本地绝对):/opt/webapp(镜像绝对路径)  ubuntu `
