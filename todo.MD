@@ -15,6 +15,9 @@
 - [ ] [爬虫：将网页中图片存入mysql数据库中](https://github.com/ArronYR/GO_CrawlData_MySQL)
 - [ ] [代码分析guuid](https://github.com/dreamans/guuid)
 
+### channel专项
+ - [ ] [Go Channel 应用模式](http://colobu.com/2018/03/26/channel-patterns/#Lock/TryLock_%E6%A8%A1%E5%BC%8F)
+
 ### 项目
 #### 消息服务
 使用框架 gin + mysql + mq实现
