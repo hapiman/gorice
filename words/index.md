@@ -12,3 +12,9 @@
 - [] encapsulate
 - [] decoupled
 - [] portal
+
+### 2018-04-03
+- [] mandatory,compulsory
+- [] eligible
+- [] minimalistic(minimalist [ˈmɪnɪməlɪst])
+
