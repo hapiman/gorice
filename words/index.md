@@ -7,3 +7,8 @@
 - [] idiomatic
 - [] subtle
 - [] heck
+
+### 2018-04-02
+- [] encapsulate
+- [] decoupled
+- [] portal
