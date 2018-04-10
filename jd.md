@@ -81,11 +81,26 @@
 
 绩效奖金：绩效奖金一般是3-5个月
 
-**One more** 试用期间工资不打折，社保公积金全额交；每月团建，周1，3，5提供水果和酸奶；
+**One more**
+
+试用期间工资不打折，社保公积金全额交；
+
+每月团建，周1，3，5提供水果和酸奶；
+
+园区有4个篮球场，目前免费开放，对于篮球爱好者，简直爽歪歪；
 
 ## 联系方式
 
 邮箱：jian.peng@fengjr.com
 
 标题：V2EX-姓名-岗位名称
+
+## 工作环境
+
+![](https://dn-cnode.qbox.me/FtybZsyqv9SQJKJQAFTP3m1jP-Uy)
+![](https://dn-cnode.qbox.me/FnpT3DbP-gpTkfTh9ovG5O20TznO)
+![](https://dn-cnode.qbox.me/FhxlAr6fa2TTt6vsut8EiLZRChJB)
+![](https://dn-cnode.qbox.me/Fk0VjH5bNVI1Bzm8tckmgTSjchhN)
+![](https://dn-cnode.qbox.me/FqcQ3fY5kKD1TUgUIEeDQ8eknk-f)
+
 
