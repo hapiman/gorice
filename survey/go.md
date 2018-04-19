@@ -1,0 +1,1 @@
+- [go大会](https://github.com/gopherchina/conference/tree/master/2018)
