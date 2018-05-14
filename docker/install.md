@@ -1,5 +1,8 @@
 ### docker安装过程说明及问题解决
 
+**docker的发布列表**[https://download.docker.com/linux/centos/7/x86_64/stable/Packages/](https://download.docker.com/linux/centos/7/x86_64/stable/Packages/)
+
+
 1.对于`CentOS`系统，Docker官方提供三种安装方式，这里主要说说前面两种安装方式。
 
 第一种，主要是通过网络实时下载安装，比较简单，但是需要翻墙，公司服务器没有翻墙，所以不能使用，会出现如`Operation timed out after 30001 milliseconds with 0 out of 0 bytes received`类似的错误
@@ -10,7 +13,7 @@
 
 2.将安装包scp到远程服务器
 
-3.使用`yum localinstall *`安装，*代表当前目录的文件，因为我的docker安装包是放在当前目录的。
+3.使用`yum localinstall *`安装`rpm`包，*代表当前目录的文件，因为我的docker安装包是放在当前目录的。
 
 特别注意，在安装的时候如果遇到`Processing Dependency: container-selinux >= 2.9 for package: docker-ce-17.12.0.ce-1.el7.centos.x86_64`这种问题，请下载[container-selinux-2.36-1.gitff95335.el7.noarch.rpm](http://mirror.centos.org/centos/7/extras/x86_64/Packages/container-selinux-2.36-1.gitff95335.el7.noarch.rpm)文件并上传到docker文件所在的目录使用`yum localinstall *`安装。
 
@@ -55,4 +58,21 @@ One of the configured repositories failed (Docker CE Stable - x86_64),
 1.升级`sudo yum -y upgrade /path/to/package.rpm`
 
 2.卸载命令，使用`sudo yum remove docker-ce`和`sudo rm -rf /var/lib/docker`
-·
+
+3.安装之后遇到类似问题`ERRO[0000] failed to dial gRPC: cannot connect to the Docker daemon. Is 'docker daemon' running on this host?: dial unix /var/run/docker.sock: connect: permission denied
+context canceled`
+
+主要是因为没有在root帐户下启动，使用下面的命令
+```
+su root # 先切换到root用户, 再执行以下命令
+systemctl enable docker # 开机自动启动docker
+
+systemctl start docker # 启动docker
+systemctl restart docker # 重启dokcer
+```
+
+4.如果在执行docker的过程中遇到类似`docker: Got permission denied while trying to connect to the Docker daemon socket at unix:///var/run/docker.sock: Post http://%2Fvar%2Frun%2Fdocker.sock/v1.26/containers/create: dial unix /var/run/docker.sock: connect: permission denied.
+See 'docker run --help'.`
+
+请执行 `sudo usermod -a -G docker $USER`命令，主要是因为权限的问题
+
