@@ -2,6 +2,11 @@
 
 点击https://git-scm.com/download/linux 页面中`on kernel.org`
 git仓库列表[https://mirrors.edge.kernel.org/pub/software/scm/git/](https://mirrors.edge.kernel.org/pub/software/scm/git/)
+安装官方文档
+
+准备条件
+- 更新 `sudo yum update`
+- 安装预设 `yum install curl-devel expat-devel gettext-devel openssl-devel zlib-devel`
 
 1. 删除 `yum remove git`
 

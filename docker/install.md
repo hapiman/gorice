@@ -10,6 +10,7 @@
 第二种，主要是在本地借助梯子使用手动下载，然后scp上传到远程服务器上手动安装，具体步骤如下：
 
 1.下载docker安装包，下载地址为[https://download.docker.com/linux/centos/7/x86_64/stable/Packages/](https://download.docker.com/linux/centos/7/x86_64/stable/Packages/)
+`wget https://download.docker.com/linux/centos/7/x86_64/stable/Packages/docker-ce-18.03.1.ce-1.el7.centos.x86_64.rpm`
 
 2.将安装包scp到远程服务器
 
@@ -76,3 +77,10 @@ See 'docker run --help'.`
 
 请执行 `sudo usermod -a -G docker $USER`命令，主要是因为权限的问题
 
+
+5. 如果在下载镜像时遇到`error pulling image configuration: net/http: TLS handshake timeout`，直接修改`/etc/docker/daemon.json`为国内镜像
+```sh
+{
+  "registry-mirrors": ["https://registry.docker-cn.com"]
+}
+```

@@ -10,6 +10,7 @@
 
 3. 修改GOPATH和GOHOME
 ```sh
+sudo vim /etc/profile
 export PATH=$PATH:/usr/local/go/bin
-export GOPATH=/home/golang
+export GOPATH=/home/www/go
 ```
