@@ -57,3 +57,9 @@ mongod --shutdown --config /usr/local/mongodb/mongodb.conf
 ## 安装常见问题
 
 1.可能会遇到`fork`相关的问题，提示设置`fork`为false，·然后启动
+
+类似`about to fork child process, waiting until server is ready for connections. forked process: 2340；ERROR: child process failed, exited with error number 1`问题
+解决方式：
+(1) 删除`mongo.lock`文件，该文件在`/data/mongodb/`下面
+(2) `mongod --repair --dbpath=/data/mongodb`
+·
