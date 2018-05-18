@@ -1,0 +1,3 @@
+- try_files使用
+- location使用
+- proxy_pass使用
