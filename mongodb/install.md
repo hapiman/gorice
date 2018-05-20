@@ -53,6 +53,17 @@ mongod --config /usr/local/mongodb/mongodb.conf
 # 关闭
 mongod --shutdown --config /usr/local/mongodb/mongodb.conf
 ```
+- 常见的`mongod.conf`设置
+```
+logappend=true
+logpath=/data/mongodb/logs/mongodb.log
+fork = true
+port = 27017
+dbpath=/data/mongodb/
+# nohttpinterface = false
+# nohttpinterface = true
+bind_ip = 0.0.0.0
+```
 
 ## 安装常见问题
 
@@ -63,3 +74,5 @@ mongod --shutdown --config /usr/local/mongodb/mongodb.conf
 (1) 删除`mongo.lock`文件，该文件在`/data/mongodb/`下面
 (2) `mongod --repair --dbpath=/data/mongodb`
 ·
+
+2.可能会遇到只能在本地能够连接，但是不能远程连接，需要在`mongodb.conf`设置`bind_ip = 0.0.0.0`
