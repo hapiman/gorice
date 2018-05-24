@@ -4,7 +4,7 @@
 - [Go Channel 详解](http://colobu.com/2016/04/14/Golang-Channels/)
 - [https://www.jianshu.com/p/42e89de33065](https://www.jianshu.com/p/42e89de33065)
 ### 注意事项
-`for range`，如果没有关闭通道`chan`，会一直阻塞
+`for range`，如果没有关闭通道`chan`，会一直阻塞， 可以调用者使用`close()`关闭程序
 
 如何一直处理某个case
 ```go
@@ -131,4 +131,23 @@ func Test_Example(t *testing.T) {
 	pool.Wait()
 	println(runtime.NumGoroutine())
 }
+```
+```go
+// 使用sync.WaitGroup实现并发，使用其中的三个方法，Add(), Done(), Wait()
+var wg sync.WaitGroup
+var urls = []string{
+  "http://www.baidu.com",
+  "http://www.baidu.com",
+  "http://www.baidu.com",
+}
+
+for _, url := range urls {
+  wg.Add(1)
+  go func(url string){
+    defer wg.Done()
+    http.Get(url)
+  }(url)
+}
+
+wg.Wait()
 ```
