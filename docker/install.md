@@ -84,3 +84,6 @@ See 'docker run --help'.`
   "registry-mirrors": ["https://registry.docker-cn.com"]
 }
 ```
+
+6. 连接问题 `Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?`
+在mac上遇到这个问题，是因为mac上没有启动，直接点击docker图标启动
