@@ -221,3 +221,30 @@ Deleted: sha256:eebd0d49d8bc51edd298b1e73bf23618c5ad524c5279afee321dfba05f01ad1f
 Deleted: sha256:9ca3c412833a48886cde42ce851c18fc12bf5e19690e37b626ce22bf80d9d0da
 Deleted: sha256:b8f31538023781df032abb68eb7b1ccb91e5ed1ac0a1f231522b84ff752eebf2
 ```
+
+### 相关问题
+
+问题1
+```sh
+2018-05-31 09:37:05.163 UTC [main] main -> ERRO 001 Cannot run peer because error when setting up MSP of type bccsp from directory /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp: could not load a valid signer certificate from directory /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/signcerts: stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/signcerts: no such file or directory
+!!!!!!!!!!!!!!! Ordering Service is not available, Please try again ... !!!!!!!!!!!!!!!!
+================== ERROR !!! FAILED to execute End-2-End Scenario ==================
+```
+主要是ubuntu上没有`make`和`gcc`命令，导致文件`github.com/hyperledger/fabric/examples/e2e_cli/../../release/darwin-amd64/bin/configtxgen`没有编译成功，在错误日志上有显示，直接安装上即可。
+
+问题2
+```
+!!!!!!!!!!!!!!! Chaincode instantiation on PEER2 on channel 'mychannel' failed !!!!!!!!!!!!!!!!
+================== ERROR !!! FAILED to execute End-2-End Scenario ==================
+```
+原因是： e2e_cli目录是固定的，启动后会创建一个docker network以此为名字，这里是`e2e_cli`。
+如果修改该目录，要修改/opt/gopath/src/github.com/hyperledger/fabric/examples/e2e_cli/base目录下的`peer-base.yaml`
+将网络名改成如下名称即可 `CORE_VM_DOCKER_HOSTCONFIG_NETWORKMODE=e2e_cli_default`
+
+
+问题3
+```sh
+Error: got unexpected status: BAD_REQUEST -- error authorizing update: error validating ReadSet: readset expected key [Group]  /Channel/Application at version 0, but got version 1
+```
+此问题是历史数据未清除干净，可能造成的原因：启动时未关闭之前的镜像，根源是由于有一个已经存在的channel，阻止进一步的执行而引起的
+解决方法两种：`./network_setup.sh down`关闭网络所有的容器 或者 手动执行`docker rm -f $(docker ps -aq)`

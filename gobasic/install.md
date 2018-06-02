@@ -13,4 +13,5 @@
 sudo vim /etc/profile
 export PATH=$PATH:/usr/local/go/bin
 export GOPATH=/home/www/go
+source /etc/profile
 ```
