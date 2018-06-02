@@ -45,3 +45,9 @@ docker-compose stop
 docker-compose rm 删除停掉的容器
 ```
 
+使用save命令将 镜像保存为文件 `docker save -o  自定义文件名.tar  已存在的镜像名`
+使用load命令将镜像文件保存到本地仓库 ` docker load -i 自定义文件名.tar`
+可以使用`docker inspect  镜像文件名或者ID `以查看 文件标签内容
+如果要重命名镜像文件名 `docker tag [image id] [name]:[版本]`，示例`docker tag b03b74b01d97 docker-redis:0.0.1`
+
+

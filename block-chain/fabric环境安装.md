@@ -226,7 +226,14 @@ Deleted: sha256:b8f31538023781df032abb68eb7b1ccb91e5ed1ac0a1f231522b84ff752eebf2
 
 问题1
 ```sh
-2018-05-31 09:37:05.163 UTC [main] main -> ERRO 001 Cannot run peer because error when setting up MSP of type bccsp from directory /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp: could not load a valid signer certificate from directory /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/signcerts: stat /opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/signcerts: no such file or directory
+2018-05-31 09:37:05.163 UTC [main] main -> ERRO 001 Cannot run peer because error when setting up MSP of type bccsp from directory
+
+/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp: could not load a valid signer certificate from directory
+
+/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/signcerts:
+
+stat/opt/gopath/src/github.com/hyperledger/fabric/peer/crypto/ordererOrganizations/example.com/orderers/orderer.example.com/msp/signcerts: no such file or directory
+
 !!!!!!!!!!!!!!! Ordering Service is not available, Please try again ... !!!!!!!!!!!!!!!!
 ================== ERROR !!! FAILED to execute End-2-End Scenario ==================
 ```
