@@ -21,3 +21,5 @@ Hyperledger Quilt
 智能合约（Smart Contracts）在 Fabric 中通过"Chaincode"得以实现
 
 IBM课程 https://www.ibm.com/developerworks/cn/cloud/library/cl-lo-hyperledger-fabric-study-notes1/index.html
+
+[Hyperledger Fabric 1.0架构及原理](https://blog.csdn.net/xcjing/article/details/78883642)

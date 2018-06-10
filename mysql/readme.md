@@ -40,3 +40,8 @@ begin
   insert into cobstat.tmp_updatetime values(@outpar);
 end
 ```
+
+MYSQL查看当前正在运行的sql表数据
+```sh
+select * from information_schema.`PROCESSLIST` WHERE INFO is NOT NULL
+```
