@@ -26,6 +26,8 @@
 
 ### 研究方向和模块
 
+前提：熟悉`makefile`,`shell`命令，`docker-composer`的`yaml`配置文件
+
 1. 搭建`kafka`和`zookeeper`集群
 
 2. [`fabric CA`](https://hyperledgercn.github.io/hyperledgerDocs/ca-setup_zh/)(MSP Membership Service Provider)的运行原理, 将颁发与校验证书，以及用户认证背后的所有密码学机制与协议都抽象了出来。一个MSP可以自己定义身份，以及身份的管理（身份验证）与认证（生成与验证签名）规则；MSP抽象提供：`具体的身份格式`,`用户证书验证`, `用户证书撤销`, `签名生成和验证`。`Fabric-CA`用于生成证书和密钥，以真正的初始化MSP，`Fabric-CA`是用于身份管理的MSP接口的默认实现。 即，MSP只是一个接口，Fabric-CA是MSP接口的一种实现。
@@ -35,3 +37,5 @@
 4. 去中心化网络协议`gossip`
 
 5. `peer`及`order`逻辑
+
+6. `chaincode`
