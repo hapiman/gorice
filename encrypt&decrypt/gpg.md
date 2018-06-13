@@ -40,14 +40,14 @@ from the Real Name, Comment and Email Address in this form:
     "Heinrich Heine (Der Dichter) <heinrichh@duesseldorf.de>"
 
 真实姓名：Bank One
-电子邮件地址：jian.peng@fengjr.com
+电子邮件地址：jian.peng@xx.com
 注释：pengjian's test
 您选定了这个用户标识：
-    “Bank One (pengjian's test) <jian.peng@fengjr.com>”
+    “Bank One (pengjian's test) <jian.peng@xx.com>”
 
 更改姓名(N)、注释(C)、电子邮件地址(E)或确定(O)/退出(Q)？q
 gpg: 密钥生成已取消。
-[supdev@fjr-ofckv-52-117 ~]$ gpg --gen-key
+[supdev@11-00]$ gpg --gen-key
 gpg (GnuPG) 2.0.14; Copyright (C) 2009 Free Software Foundation, Inc.
 This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
@@ -62,13 +62,13 @@ RSA 密钥长度应在 1024 位与 4096 位之间。
 您想要用多大的密钥尺寸？(2048)
 gpg: signal Interrupt caught ... exiting
 
-[supdev@fjr-ofckv-52-117 ~]$
-[supdev@fjr-ofckv-52-117 ~]$
-[supdev@fjr-ofckv-52-117 ~]$
-[supdev@fjr-ofckv-52-117 ~]$ clease
+[supdev@11-00]$
+[supdev@11-00]$
+[supdev@11-00]$
+[supdev@11-00]$ clease
 -bash: clease: command not found
-[supdev@fjr-ofckv-52-117 ~]$ clear
-[supdev@fjr-ofckv-52-117 ~]$ gpg --gen-key
+[supdev@11-00]$ clear
+[supdev@11-00]$ gpg --gen-key
 gpg (GnuPG) 2.0.14; Copyright (C) 2009 Free Software Foundation, Inc.
 This is free software: you are free to change and redistribute it.
 There is NO WARRANTY, to the extent permitted by law.
@@ -97,25 +97,25 @@ from the Real Name, Comment and Email Address in this form:
     "Heinrich Heine (Der Dichter) <heinrichh@duesseldorf.de>"
 
 真实姓名：pengj
-电子邮件地址：jian.peng@fengjr.com
+电子邮件地址：jian.peng@xx.com
 注释：pengj's gpg test
 您选定了这个用户标识：
-    “pengj (pengj's gpg test) <jian.peng@fengjr.com>”
+    “pengj (pengj's gpg test) <jian.peng@xx.com>”
 
 更改姓名(N)、注释(C)、电子邮件地址(E)或确定(O)/退出(Q)？N
 真实姓名：pengjian
 您选定了这个用户标识：
-    “pengjian (pengj's gpg test) <jian.peng@fengjr.com>”
+    “pengjian (pengj's gpg test) <jian.peng@xx.com>”
 
 更改姓名(N)、注释(C)、电子邮件地址(E)或确定(O)/退出(Q)？C
 注释：pengjian
 您选定了这个用户标识：
-    “pengjian (pengjian) <jian.peng@fengjr.com>”
+    “pengjian (pengjian) <jian.peng@xx.com>”
 
 更改姓名(N)、注释(C)、电子邮件地址(E)或确定(O)/退出(Q)？C
 注释：pengjian's gpg test
 您选定了这个用户标识：
-    “pengjian (pengjian's gpg test) <jian.peng@fengjr.com>”
+    “pengjian (pengjian's gpg test) <jian.peng@xx.com>”
 
 更改姓名(N)、注释(C)、电子邮件地址(E)或确定(O)/退出(Q)？O
 您需要一个密码来保护您的私钥。
@@ -133,7 +133,7 @@ gpg: 需要 3 份勉强信任和 1 份完全信任，PGP 信任模型
 gpg: 深度：0 有效性：  2 已签名：  0 信任度：0-，0q，0n，0m，0f，2u
 pub   4096R/ECC36BE6 2018-06-10
 密钥指纹 = 712B CBB9 52BB 4B69 FB0B  155A 155A 53F4 ECC3 6BE6
-uid                  pengjian (pengjian's gpg test) <jian.peng@fengjr.com>
+uid                  pengjian (pengjian's gpg test) <jian.peng@xx.com>
 sub   4096R/7CB581D2 2018-06-10
 ```
 
@@ -153,7 +153,7 @@ sub   4096R/A140BD32 2018-05-17
 - 导出密钥
 ```sh
 # Exporting the public key
-gpg --armor --export jian.peng@fengjr.com(电子邮件名称) > pengjian.asc
+gpg --armor --export jian.peng@xx.com(电子邮件名称) > pengjian.asc
 # 或
 gpg --armor --output pengjian.asc --export [用户ID]
 # 导出私钥
