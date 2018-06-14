@@ -3,3 +3,6 @@
 
 - [godotenv](https://github.com/joho/godotenv)
 读取本地的`.env`配置文件
+
+- [go-simplejson](https://godoc.org/github.com/bitly/go-simplejson)
+json处理
