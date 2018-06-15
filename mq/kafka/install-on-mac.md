@@ -22,7 +22,7 @@
   /usr/local/bin/zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties &
   # 或者
   cd /usr/local/Cellar/kafka/1.0.0
-  zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties &
+  ./zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties &
 ```
 
 * 启动kafka服务
