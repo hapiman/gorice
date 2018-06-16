@@ -6,7 +6,7 @@
 ### Partition
 
 Topic物理分组，一个Topoc可以分为多个Partition，每个Partition是一个有序的队列。Partition中的每条消息都会被分配一个有序的id。如果没有指定，则会使用server.properties中默认配置数量，也就是`num.partitions`的值。
-![](https://raw.githubusercontent.com/hapiman/gorice/master/mq/kafka/anatomy.png)
+![](https://raw.githubusercontent.com/hapiman/gorice/master/mq/kafka/imgs/anatomy.png)
 
 虽然增加分区数可以提供kafka集群的吞吐量，但是也会增加不可用及延迟的风险。因为多的分区数，意味着需要打开更多的文件句柄、增加点到点的延时、增加客户端的内存消耗。
 

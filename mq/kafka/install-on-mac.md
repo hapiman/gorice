@@ -22,7 +22,7 @@
   /usr/local/bin/zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties &
   # 或者
   cd /usr/local/Cellar/kafka/1.0.0
-  ./zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties &
+  ./bin/zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties &
 ```
 
 * 启动kafka服务
@@ -65,7 +65,7 @@ Adding partitions succeeded!
 * 生产者：发送消息
 ``` sh
 cd /usr/local/Cellar/kafka/1.0.0
-.bin/kafka-console-producer --broker-list localhost:9092 --topic test
+./bin/kafka-console-producer --broker-list localhost:9092 --topic test
 
 # > message 1
 # > message 2
@@ -106,4 +106,95 @@ cd /usr/local/Cellar/kafka/1.0.0
 ``` sh
 ./bin/kafka-server-stop
 ./bin/zookeeper-server-stop
+```
+
+### 如何设置多个broker
+
+* 创建配置文件
+```sh
+cd /usr/local/etc/kafka
+cp server.properties config/server-1.properties
+cp server.properties config/server-2.properties
+```
+* 修改文件
+在`server-1.properties`文件中
+```sh
+broker.id=1
+listeners=PLAINTEXT://:9093
+log.dirs=/usr/local/var/lib/kafka-logs-1
+```
+在`server-2.properties`文件中
+```sh
+broker.id=2
+listeners=PLAINTEXT://:9094
+log.dirs=/usr/local/var/lib/kafka-logs-2
+```
+
+* 启动`zookeeper`
+```sh
+  /usr/local/bin/zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties &
+  # 或者
+  cd /usr/local/Cellar/kafka/1.0.0
+  ./bin/zookeeper-server-start /usr/local/etc/kafka/zookeeper.properties &
+```
+
+* 启动kafka服务
+``` sh
+cd /usr/local/Cellar/kafka/1.0.0
+./bin/kafka-server-start /usr/local/etc/kafka/server.properties &
+./bin/kafka-server-start /usr/local/etc/kafka/server-1.properties &
+./bin/kafka-server-start /usr/local/etc/kafka/server-2.properties &
+```
+* 创建多个topic
+```sh
+./bin/kafka-topics --zookeeper localhost:2181 --replication-factor 3 --describe --topic  my-replicated-topic
+# 查看所有的topic
+cd /usr/local/Cellar/kafka/1.0.0
+./bin/kafka-topics --list --zookeeper localhost:2181
+```
+
+* 查看分区信息
+```sh
+./bin/kafka-topics --describe --zookeeper localhost:2181 --topic my-replicated-topic
+```
+
+Topic:my-replicated-topic	PartitionCount:1	ReplicationFactor:3	Configs:
+Topic: my-replicated-topic	Partition: 0	 Leader: 0	Replicas: 1,2,0	Isr: 0
+
+其中，
+
+"leader" 节点是1.
+
+"replicas" 信息，在节点1,2,0上，不管node死活，只是列出信息而已.
+
+"isr" 工作中的复制节点的集合. 也就是活的节点的集合.
+
+* 生产者：发送消息
+``` sh
+cd /usr/local/Cellar/kafka/1.0.0
+./bin/kafka-console-producer --broker-list localhost:9092 --topic my-replicated-topic
+```
+
+* 消费者：接收消息
+```sh
+cd /usr/local/Cellar/kafka/1.0.0
+./bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic my-replicated-topic --from-beginning
+```
+
+* 直接先杀调`broker1`,也就是`leader`节点
+```sh
+ps | grep server-1.properties
+# 20376 ttys006    0:16.60 /Library/Java/JavaVirtualMachines/jdk1.8.0_162.jdk/Contents/Home/bin/java
+kill -9 20376
+#  leader节点发送改变，从日志可以看出； 同时当前的活着的可用节点为2,0
+```
+
+Topic:my-replicated-topic	PartitionCount:1	ReplicationFactor:3	Configs:
+Topic: my-replicated-topic	Partition: 0	Leader: 2	Replicas: 1,2,0	Isr: 2,0
+
+* 消费者：接收消息2
+```sh
+# 再次接收数据，数据没有发送改变
+cd /usr/local/Cellar/kafka/1.0.0
+./bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic my-replicated-topic --from-beginning
 ```
