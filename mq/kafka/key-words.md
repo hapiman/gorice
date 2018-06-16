@@ -6,6 +6,7 @@
 ### Partition
 
 Topic物理分组，一个Topoc可以分为多个Partition，每个Partition是一个有序的队列。Partition中的每条消息都会被分配一个有序的id。如果没有指定，则会使用server.properties中默认配置数量，也就是`num.partitions`的值。
+![](https://raw.githubusercontent.com/hapiman/gorice/master/mq/kafka/anatomy.png)
 
 虽然增加分区数可以提供kafka集群的吞吐量，但是也会增加不可用及延迟的风险。因为多的分区数，意味着需要打开更多的文件句柄、增加点到点的延时、增加客户端的内存消耗。
 
@@ -25,8 +26,8 @@ Topic物理分组，一个Topoc可以分为多个Partition，每个Partition是�
 
 ### Consumer Group
 
-每个·`Consumer`属于一个特定的`Consumer Group`(可为每个 Consumer 指定Group Name，若不指定 Group Name 则属于默认的 Group）。
+每个`Consumer`属于一个特定的`Consumer Group`(可为每个 Consumer 指定Group Name，若不指定 Group Name 则属于默认的 Group）。
 
-这是 Kafka 用来实现一个 Topic 消息的广播（发给所有的 Consumer ）和单播（发给任意一个 Consumer ）的手段。
+这是 Kafka 用来实现一个 `Topic 消息的广播`（发给所有的 Consumer ）和`单播`（发给任意一个 Consumer ）的手段。
 
 一个 Topic 可以有多个 Consumer Group。Topic 的消息会复制（不是真的复制，是概念上的）到所有的 Consumer Group，但每个 Consumer Group 只会把消息发给该 Consumer Group 中的一个 Consumer。如果要实现广播，只要每个 Consumer 有一个独立的 Consumer Group 就可以了。如果要实现单播只要所有的 Consumer 在同一个 Consumer Group 。用 Consumer Group 还可以将 Consumer 进行自由的分组而不需要多次发送消息到不同的 Topic 。
