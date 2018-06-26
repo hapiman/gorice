@@ -1,11 +1,13 @@
 ### Topic
 将消息分门别类，每一类消息称之为话题(Topic)
 
-物理上不同 Topic 的消息分开存储。逻辑上一个 Topic 的消息虽然保存于一个或多个broker上，但用户只需指定消息的 Topic 即可生产或消费数据而不必关心数据存于何处
+逻辑上一个Topic的消息虽然保存于一个或多个broker上，但用户只需指定消息的 Topic 即可生产或消费数据而不必关心数据存于何处
+
+
 
 ### Partition
 
-Topic物理分组，一个Topoc可以分为多个Partition，每个Partition是一个有序的队列。Partition中的每条消息都会被分配一个有序的id。如果没有指定，则会使用server.properties中默认配置数量，也就是`num.partitions`的值。
+Topic物理分组，一个Topic可以分为多个Partition，每个Partition是一个有序的队列。Partition中的每条消息都会被分配一个有序的id。如果没有指定，则会使用server.properties中默认配置数量，也就是`num.partitions`的值。
 ![](https://raw.githubusercontent.com/hapiman/gorice/master/mq/kafka/imgs/anatomy.png)
 
 虽然增加分区数可以提供kafka集群的吞吐量，但是也会增加不可用及延迟的风险。因为多的分区数，意味着需要打开更多的文件句柄、增加点到点的延时、增加客户端的内存消耗。
@@ -23,6 +25,9 @@ Topic物理分组，一个Topoc可以分为多个Partition，每个Partition是�
 ### Broker
 已发布的消息保存在一组服务器中，这组服务器就是`kafka`集群。集群中的每一个服务器都是一个代理（Broker）。
 消费者可以订阅一个或者多个话题，并从`Broker`拉数据，从而消费这些已发布的消息
+
+一个broker可以容纳多个topic。
+一个Broker上可以有一个Topic的多个Partition，每个Partition的Leader随机存在于某一个Broker，这样实现了Topic的读写的负载均衡
 
 ### Consumer Group
 
