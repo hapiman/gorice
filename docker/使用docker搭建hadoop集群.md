@@ -1,3 +1,4 @@
+## 安装过程
 > [安装文档原文](https://blog.csdn.net/qq_33530388/article/details/72811705)
 - 下载镜像
 ```sh
@@ -20,12 +21,14 @@ cd .ssh # 回到ssh目录
 cat id_rsa.pub > authorized_keys
 ```
 实现每一台机器的`authorized_keys`相同, 都有集群中其他服务器的公钥
-
+![](https://github.com/hapiman/gorice/blob/master/docker/imgs/authorize_keys.png?raw=true)
 - 配置hosts
+
 使用`ip addr`来获取当前服务器的IP地址
 在每一台机器上, 修改`/etc/hosts`, 将主机名和对应的ip地址添加进去, 方便调用`ssh`
-如图:
 
+如图:
+![](https://github.com/hapiman/gorice/blob/master/docker/imgs/hosts.png?raw=true)
 每台服务器都配置好之后, 可以在集群中任意节点执行`ssh Slave1`, `ssh Slave2`, `ssh Master`实现登录
 
 - 配置hadoop
@@ -127,6 +130,7 @@ scp core-site.xml hadoop-env.sh hdfs-site.xml mapred-site.xml yarn-site.xml slav
 ```sh
 hadoop namenode -format
 ```
+
 启动hadoop, 如果启动过程中提示关于0.0.0.0地址输入yes或no，输入yes即可
 ```sh
 /opt/tools/hadoop/sbin/start-all.sh
@@ -143,7 +147,9 @@ jps
 ```sh
 hadoop dfsadmin -report
 ```
-如图:
+如果没有遇到异常,结果如图所示
+![](https://github.com/hapiman/gorice/blob/master/docker/imgs/report.png?raw=true)
+
 
 - 示例
 
@@ -153,3 +159,10 @@ hadoop dfsadmin -report
 在`/opt/tools/hadoop/share/hadoop/mapreduce`目录中执行：`hadoop jar hadoop-mapreduce-examples-2.7.2.jar wordcount /input /output`
 查看输出文件夹 `hadoop fs -ls /output/`
 查看统计结果 `hadoop fs -cat /output1/part-r-00000`, 至于文件名称是否叫做`part-r-00000`不确定
+
+## 注意事项
+1.因为使用镜像安装,每一重启之后会回到初始状态,需要经常备份容器; 另外似乎`/etc/hosts`每一次都会随着容器重启而重置
+
+2.如何固定容器的IP, 使容器不因重启而改变IP
+
+3.如果dataNode启动不起来, 很可能是因为`master`和`slaver`的`clusterID`不同导致, 什么时候会导致不同呢?
