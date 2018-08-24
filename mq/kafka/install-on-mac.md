@@ -43,7 +43,7 @@ cd /usr/local/Cellar/kafka/1.0.0
 ``` sh
 # 查看所有的topic
 cd /usr/local/Cellar/kafka/1.0.0
-./bin/kafka-topics --list --zookeeper localhost:2181
+./bin/kafka-topics --list --zookeeper localhost:2181 
 # 查看指定topic
 ./bin/kafka-topics --zookeeper localhost:2181 --describe --topic  test
 # 关于结果分析分析
