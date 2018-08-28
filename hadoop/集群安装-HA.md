@@ -1,4 +1,9 @@
 
+### HA设置
+```sh
+$HADOOP_PREFIX/sbin/hadoop-daemon.sh start journalnode
+```
+
 ### 手动配置failover
 先停止所有的`hadoop`进程, 在`hdfs-site.xml`中配置
 ```xml
@@ -107,7 +112,7 @@ $HADOOP_PREFIX/sbin/hadoop-daemon.sh start journalnode
 jps
 
 ```
-
+### zk初始化
 初始化集群, 在任一台能访问到zk的机器上执行
 ```sh
 /usr/local/hadoop/bin/hdfs zkfc -formatZK
@@ -117,7 +122,7 @@ jps
 [zk: localhost:2181(CONNECTED) 1] ls /
 [zookeeper, hadoop-ha]
 ```
-
+### 使用zkfc控制集群状态
 如何控制`hadoop`的`active`和`standby`状态切换, 使用了`hadoop`的`zkfc`进程, 在两个`namenode`之上执行
 ```sh
 /usr/local/hadoop/sbin/hadoop-daemon.sh --script /usr/local/hadoop/hdfs start zkfc
@@ -184,7 +189,7 @@ exit $RETVAL
 ```
 设置为可执行: `chmod +x /etc/init.d/hadoop-namenode`
 添加到自启动: `chkconfig hadoop-namenode on`
-检测: `service hadoop-namenode start`
+检测: `service hadoop-namenode start`·
 
 ### 配置datanode开机启动
 

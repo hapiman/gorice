@@ -23,8 +23,8 @@ chmod 600 .ssh/authorized_keys
 # 确保每一台机器上的authorized_keys保持一致, 不通机器之间都可以通过ssh互通
 ```
 
-### 安装mysql
-使用`hadoop`用户安装`mysql`
+### 安装java
+使用`hadoop`用户安装`java`
 
 安装文件: `jdk-8u171-linux-x64.tar.gz`
 
@@ -133,11 +133,6 @@ rm -rf /data/hadoop/hdfs/dn/current/
 /usr/local/hadoop/sbin/hadoop-daemon.sh --script hdfs start namenode
 # 启动datanode节点, 使用jps查看 13281 DataNode \n 15530 Jps
 /usr/local/hadoop/sbin/hadoop-daemon.sh --script hdfs start datanode
-```
-
-### HA设置
-```sh
-$HADOOP_PREFIX/sbin/hadoop-daemon.sh start journalnode
 ```
 
 ### 遇到的问题
