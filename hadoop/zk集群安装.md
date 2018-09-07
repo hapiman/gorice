@@ -60,7 +60,7 @@ $ZOOKEEPER_HOME/bin/zkServer.sh status
 ``` sh
 $ZOOKEEPER_HOME/bin/zkServer.sh stop
 # 之前需要删除启动日志信息
-ls |grep -v myid |xargs rm -rf (删除myid之外的文件)
+ls /data/zookeeper |grep -v myid |xargs rm -rf (删除myid之外的文件)
 rm -rf /data/logs/zookeeper/*
 # 配置$ZOOKEEPER_HOME/conf/zoo.cfg
 # fjr-ofckv-72-238 237 238 是你的hostname

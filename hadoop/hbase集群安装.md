@@ -101,7 +101,7 @@ esac
 exit $RETVAL
 ```
 使用`root`用户, 执行`chmod +x hbase-master`, `chkconfig hbase-master on`
-使用`service hbase-master start/stop`来测试
+使用`sudo service hbase-master start/stop`来测试
 
 ### RegionServer自启动
 在`/etc/init.d`目录下执行`vim hbase-regionserver`
@@ -129,4 +129,4 @@ esac
 exit $RETVAL
 ```
 使用`root`用户, 执行`chmod +x hbase-regionserver`, `chkconfig hbase-regionserver on`
-使用`service hbase-regionserver start/stop`来测试
+使用`sudo service hbase-regionserver start/stop`来测试

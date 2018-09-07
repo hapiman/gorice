@@ -214,7 +214,7 @@ start)
 stop)
   stop
 ;;
-esac
+esac·
 exit $RETVAL
 ```
 设置为可执行: `chmod +x /etc/init.d/hadoop-datanode`
