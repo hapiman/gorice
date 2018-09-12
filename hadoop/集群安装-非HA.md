@@ -1,8 +1,7 @@
 
 ### 配置用户名
 ```
-useradd hadoop
-passwd hadoop
+useradd hadoop && passwd hadoop
 # 登录密钥
 # 添加hadoop到sudoers中
 chmod u+w /etc/sudoers
@@ -17,21 +16,19 @@ hadoop ALL=NOPASSWD:ALL
 cd
 ssh-keygen -t rsa
 # 在不同的服务器上生成之后,
-chmod 700 ~/.ssh
-cat id_rsa.pub >> ~/.ssh/authorized_keys
-chmod 600 .ssh/authorized_keys
+chmod 700 ~/.ssh && cat ~/.ssh/id_rsa.pub >> ~/.ssh/authorized_keys && chmod 600 .ssh/authorized_keys
 # 确保每一台机器上的authorized_keys保持一致, 不通机器之间都可以通过ssh互通
 ```
 
 ### 安装java
 使用`hadoop`用户安装`java`
 
-安装文件: `jdk-8u171-linux-x64.tar.gz`
+文件地址: [jdk-8u181-linux-x64.tar.gz](http://download.oracle.com/otn-pub/java/jdk/8u181-b13/96a7b8442fe848ef90c96a2fad6ed6d1/jdk-8u181-linux-x64.tar.gz?AuthParam=1536580563_bd197c67d1ce939bb53030d979b2c591)
 
 安装过程:
 ```
-tar -xvzf  jdk-8u171-linux-x64.tar.gz
-mv jdk1.8.0_171 java
+tar -xvzf  jdk-8u181-linux-x64.tar.gz
+mv jdk1.8.0_181 java
 sudo mv java /usr/local
 ```
 
@@ -83,7 +80,7 @@ export HADOOP_LOG_DIR=/data/logs/hadoop
 <configuration>
   <property>
     <name>fs.defaultFS</name>
-    <value>hdfs://fjr-ofckv-72-238:8020</value>
+    <value>hdfs://fjx-ofckv-72-238:8020</value>
   </property>
 </configuration>
 ```
@@ -131,8 +128,10 @@ rm -rf /data/hadoop/hdfs/dn/current/
 ```sh
 # 启动namenode节点, 使用jps查看 1490 Jps \n 1382 NameNode
 /usr/local/hadoop/sbin/hadoop-daemon.sh --script hdfs start namenode
+/usr/local/hadoop/sbin/hadoop-daemon.sh --script hdfs stop namenode
 # 启动datanode节点, 使用jps查看 13281 DataNode \n 15530 Jps
 /usr/local/hadoop/sbin/hadoop-daemon.sh --script hdfs start datanode
+/usr/local/hadoop/sbin/hadoop-daemon.sh --script hdfs stop datanode
 ```
 
 ### 遇到的问题

@@ -37,9 +37,9 @@ ZOOKEEPER_PREFIX="${ZOOBINDIR}/.."
 ```
 4.创建文件夹
 ```sh
-sudo mkdir /data/zookeeper
+sudo mkdir -p /data/zookeeper
 sudo chown zookeeper.zookeeper /data/zookeeper
-sudo mkdir /data/logs/zookeeper
+sudo mkdir -p /data/logs/zookeeper
 sudo chown zookeeper.zookeeper /data/logs/zookeeper
 ```
 5.在每台`dataDir`目录中创建`myid`文件, 写入这台服务器的`Zookeeper id`, 这个id是一个1-255的数字
@@ -63,10 +63,10 @@ $ZOOKEEPER_HOME/bin/zkServer.sh stop
 ls /data/zookeeper |grep -v myid |xargs rm -rf (删除myid之外的文件)
 rm -rf /data/logs/zookeeper/*
 # 配置$ZOOKEEPER_HOME/conf/zoo.cfg
-# fjr-ofckv-72-238 237 238 是你的hostname
-server.238=fjr-ofckv-72-238:2888:3888
-server.237=fjr-ofckv-72-237:2888:3888
-server.236=fjr-ofckv-72-236:2888:3888
+# fjx-ofckv-72-238 237 238 是你的hostname
+server.238=fjx-ofckv-72-238:2888:3888
+server.237=fjx-ofckv-72-237:2888:3888
+server.236=fjx-ofckv-72-236:2888:3888
 ```
 
 ### 添加到自启动

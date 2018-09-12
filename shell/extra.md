@@ -8,7 +8,7 @@ shell命令中的`>`和`<`使用 ？
 
 `grep`, `sed`结合`sed`统计查阅日志的行数
 
-` dmidecode -t memory | grep Size: | grep -v "No Module Installed"`查看内存中总量
+`dmidecode -t memory | grep Size: | grep -v "No Module Installed"`查看内存中总量
 
 
 u 代表用户.
@@ -33,4 +33,4 @@ cc       也是删除当前行，然后进入INSERT MODE
 
 vim中
 `0`表示跳转到行首
-`$`表示跳转到行尾
+`$`表示跳转到行尾$$

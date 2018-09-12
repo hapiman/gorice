@@ -16,30 +16,30 @@ $HADOOP_PREFIX/sbin/hadoop-daemon.sh start journalnode
   <property>
    <!-- 设置namenode列表-->
     <name>dfs.ha.namenodes.mycluster</name>
-    <value>fjr-ofckv-72-238,fjr-ofckv-72-237</value>
+    <value>fjx-ofckv-72-238,fjx-ofckv-72-237</value>
   </property>
   <property>
     <!-- 设置nodenode的rpc访问地址 -->
-    <name>dfs.namenode.rpc-address.mycluster.fjr-ofckv-72-238</name>
-    <value>fjr-ofckv-72-238:8020</value>
+    <name>dfs.namenode.rpc-address.mycluster.fjx-ofckv-72-238</name>
+    <value>fjx-ofckv-72-238:8020</value>
   </property>
   <property>
-    <name>dfs.namenode.rpc-address.mycluster.fjr-ofckv-72-237</name>
-    <value>fjr-ofckv-72-237:8020</value>
+    <name>dfs.namenode.rpc-address.mycluster.fjx-ofckv-72-237</name>
+    <value>fjx-ofckv-72-237:8020</value>
   </property>
   <property>
     <!-- 设置namenode的http访问地址 -->
-    <name>dfs.namenode.http-address.mycluster.fjr-ofckv-72-238</name>
-    <value>fjr-ofckv-72-238:50070</value>
+    <name>dfs.namenode.http-address.mycluster.fjx-ofckv-72-238</name>
+    <value>fjx-ofckv-72-238:50070</value>
   </property>
   <property>
-    <name>dfs.namenode.http-address.mycluster.fjr-ofckv-72-237</name>
-    <value>fjr-ofckv-72-237:50070</value>
+    <name>dfs.namenode.http-address.mycluster.fjx-ofckv-72-237</name>
+    <value>fjx-ofckv-72-237:50070</value>
   </property>
   <property>
     <!-- 设置journalnode集群访问地址 -->
     <name>dfs.namenode.shared.edits.dir</name>
-    <value>qjournal://fjr-ofckv-72-238:8485;fjr-ofckv-72-237:8485;fjr-ofckv-72-236:8485/mycluster</value>
+    <value>qjournal://fjx-ofckv-72-238:8485;fjx-ofckv-72-237:8485;fjx-ofckv-72-236:8485/mycluster</value>
   </property>
   <property>
     <!-- 配置dns客户端 -->
@@ -92,7 +92,7 @@ $HADOOP_PREFIX/sbin/hadoop-daemon.sh start journalnode
   <property>
     <!-- zk列表 -->
     <name>ha.zookeeper.quorum</name>
-    <value>fjr-ofckv-72-238:2181,fjr-ofckv-72-237:2181,fjr-ofckv-72-236:2181</value>
+    <value>fjx-ofckv-72-238:2181,fjx-ofckv-72-237:2181,fjx-ofckv-72-236:2181</value>
   </property>
   <property>
     <name>ha.zookeeper.session-timeout.ms</name>
@@ -103,8 +103,8 @@ $HADOOP_PREFIX/sbin/hadoop-daemon.sh start journalnode
 ```sh
 # 创建文件目录
 su - hadoop
-mkdir /data/hadoop/hdfs/jn
-chown hadoop.hadoop /data/hadoop/hdfs/jn
+sudo mkdir /data/hadoop/hdfs/jn
+sudo chown hadoop.hadoop /data/hadoop/hdfs/jn
 
 # 启动
 $HADOOP_PREFIX/sbin/hadoop-daemon.sh start journalnode
@@ -224,6 +224,10 @@ exit $RETVAL
 
 ### 遇到的问题
 
-1. 启动namenode的时候发现不能启动, 查看了log日志 ` ERROR org.apache.hadoop.hdfs.server.namenode.EditLogInputStream: Got error reading edit log input stream http://fjr-ofckv-72-236:8480/getJournal?jid=mycluster&segmentTxId=1&storageInfo=-60%3A2130050496%3A0%3ACID-f77b10ed-4f80-4ad6-a9f1-1166fd67bcfc; failing over to edit log http://fjr-ofckv-72-237:8480/getJournal?jid=mycluster&segmentTxId=1&storageInfo=-60%3A2130050496%3A0%3ACID-f77b10ed-4f80-4ad6-a9f1-1166fd67bcfc`
+1. 启动namenode的时候发现不能启动, 查看了log日志 ` ERROR org.apache.hadoop.hdfs.server.namenode.EditLogInputStream: Got error reading edit log input stream http://fjx-ofckv-72-236:8480/getJournal?jid=mycluster&segmentTxId=1&storageInfo=-60%3A2130050496%3A0%3ACID-f77b10ed-4f80-4ad6-a9f1-1166fd67bcfc; failing over to edit log http://fjx-ofckv-72-237:8480/getJournal?jid=mycluster&segmentTxId=1&storageInfo=-60%3A2130050496%3A0%3ACID-f77b10ed-4f80-4ad6-a9f1-1166fd67bcfc`
 
 解决方法: 在`namenode`的机器上执行`hdfs namenode -bootstrapStandby`
+
+2. 如果出现在不同的`namenode`节点下面`datanode`节点不同, 使用
+`scp -r  /data/hadoop/hdfs/nn/* hadoop@254-53:/data/hadoop/hdfs/nn/`的方式, 将`namenode`同步;
+若同时出现了`datanode`异常,则删除`rm -rf /data/hadoop/hdfs/dn/current/`, 然后重启`/usr/local/hadoop/sbin/hadoop-daemon.sh --script hdfs start datanode`

@@ -12,8 +12,8 @@ export PATH=$PATH:$HBASE_HOME/bin
 ```
 ### 设置`supergroup`用户组
 ```sh
-groupadd supergroup
-groupmems -g supergroup -a hbase
+sudo groupadd supergroup
+sudo groupmems -g supergroup -a hbase
 ```
 ### 安装hbase
 ```sh
@@ -25,7 +25,13 @@ sudo chown -R hbase.hbase /usr/local/hbase
 # 创建日志
 sudo mkdir /data/logs/hbase
 sudo chown -R hbase.hbase /data/logs/hbase
+# 创建数据目录
+sudo mkdir /data/hbase
+sudo chown -R hbase.hbase  /data/hbase
 ```
+
+### 将hadoop集群的`hdfs-site.xml`和`core-site.xml`放到`hbase/conf`
+
 ### 配置hbase-env.sh
 ```sh
 # 设置不使用系统的`zookeer`,使用独立的
@@ -46,7 +52,7 @@ export HBASE_LOG_DIR=/data/logs/hbase
   </property>
   <property>
     <name>hbase.zookeeper.property.dataDir</name>
-    <value>/home/hbase/zookeeper</value>
+    <value>/data/hbase/zookeeper</value>
   </property>
   <property>
     <!-- 分布式开关 -->
@@ -56,13 +62,17 @@ export HBASE_LOG_DIR=/data/logs/hbase
   <property>
     <!-- zookeeper集群地址 -->
     <name>hbase.zookeeper.quorum</name>
-    <value>fjr-ofckv-72-238,fjr-ofckv-72-237,fjr-ofckv-72-236</value>
+    <value>fjx-ofckv-72-238,fjx-ofckv-72-237,fjx-ofckv-72-236</value>
+  </property>
+  <property>
+    <name>hbase.table.sanity.checks</name>
+    <value>false</value>
   </property>
 </configuration>
 ```
 **备注**: 将上面的两个文件分别同步到集群中每台机器上
 
-### 手动启动
+### 手动启动·
 ```sh
 # 启动Master
 $HBASE_HOME/bin/hbase-daemon.sh start master
