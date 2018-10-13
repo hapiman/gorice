@@ -12,7 +12,7 @@ Reader 接口的定义如下：
 
 ```go
 type Reader interface {
-    Read(p []byte) (n int, err error)
+    Read(p []byte) (n int, err error)·
 }
 ```
 
