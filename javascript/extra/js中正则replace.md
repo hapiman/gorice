@@ -11,7 +11,7 @@ console.log(rep); // http://www.qidian.com/BookReader/ShowBook.aspx?bookId=10171
 
 //方式二 ,采用固定参数的回调函数
 var rep2=url.replace(reg,function(m,p1,p2,p3){
-  console.log('mmmm => ', m)
+  console.log('mmmm => ', m, p1,p2,p3)
   return p1+"ShowBook.aspx?bookId="+p3+"&chapterId="+p3
 });
 alert(rep2);

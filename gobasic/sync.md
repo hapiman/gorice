@@ -1,3 +1,5 @@
+`sync`原理说的比较明确的文章[https://deepzz.com/post/golang-sync-package-usage.html](https://deepzz.com/post/golang-sync-package-usage.html)
+
 程序中需要并发，需要创建多个goroutine，并且一定要等这些并发全部完成后才继续接下来的程序执行．WaitGroup的特点是Wait()可以用来阻塞直到队列中的所有任务都完成时才解除阻塞，而不需要sleep一个固定的时间来等待．但是其缺点是无法指定固定的goroutine数目．
 
 
