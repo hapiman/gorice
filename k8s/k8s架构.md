@@ -58,3 +58,7 @@ Proxy提供`TCP/UDP sockets`的proxy，每创建一种Service，Proxy主要从et
 然后根据配置信息在Node上启动一个Proxy的进程并监听相应的服务端口，当外部请求发生时，Proxy会根据`Load Balancer`将请求分发到后端正确的容器处理。
 
 2.Proxy不但解决了同一主宿机相同服务端口冲突的问题，还提供了Service转发服务端口对外提供服务的能力，Proxy后端使用了随机、轮循负载均衡算法。
+
+### 参考文档
+
+https://lihaoquan.me/2017/3/8/get-concepts-in-kubernetes.html
