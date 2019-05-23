@@ -87,7 +87,7 @@ kubeadm init --kubernetes-version=v1.14.2 --pod-network-cidr=10.244.0.0/16 --ser
 `pod-network-cidr`: 用于指定Pod的网络范围。该参数使用依赖于使用的网络方案，本文将使用经典的flannel网络方案。
 `service-cidr`:
 
-如果没有问题, 则会得到输出结果:
+如果没有问题, 则会得到输出结果: [输出结果](https://github.com/hapiman/gorice/blob/master/k8s/kubeadm_init.md)
 
 (2) 设置`.kube/config`
 ```
@@ -112,7 +112,7 @@ echo $KUBECONFIG
 (5) 安装Pod网络
 安装 Pod网络是 Pod之间进行通信的必要条件，k8s支持众多网络方案，这里我们依然选用经典的`flannel`方案
 
-a.在任意位置新建文件 `kube-flannel.yaml`
+a.在任意位置新建文件 `kube-flannel.yaml`, 文件内容: [文件内容](https://github.com/hapiman/gorice/blob/master/k8s/kube-flannel.yaml)
 
 b.首先设置系统参数 `sysctl net.bridge.bridge-nf-call-iptables=1`
 
