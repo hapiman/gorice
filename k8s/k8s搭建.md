@@ -45,6 +45,7 @@ systemctl status docker
 systemctl enable docker
 ```
 (2) 安装 kubelet、kubeadm、kubectl
+
 设置仓库地址:
 ```
 cat>>/etc/yum.repos.d/kubrenetes.repo<<EOF
@@ -132,6 +133,7 @@ echo $KUBECONFIG
 ```
 
 (5) 安装Pod网络
+
 安装 Pod网络是 Pod之间进行通信的必要条件，k8s支持众多网络方案，这里我们依然选用经典的`flannel`方案
 
 a.在任意位置新建文件 `kube-flannel.yaml`, 文件内容: [文件内容](https://github.com/hapiman/gorice/blob/master/k8s/kube-flannel.yaml)
@@ -140,7 +142,7 @@ b.首先设置系统参数 `sysctl net.bridge.bridge-nf-call-iptables=1`
 
 c.使用 `kube-flannel.yaml`文件, `kubectl apply -f kube-flannel.yaml`
 
-d.检查pod网络是否正常 `kubectl get pods --all-namespaces -o wide`, 如果READY都为1/1, 则正常
+d.检查pod网络是否正常 `kubectl get pods --all-namespaces -o wide`, 如果`READY`都为`1/1`, 则正常
 ```
 NAMESPACE     NAME                                      READY   STATUS    RESTARTS   AGE     IP             NODE              NOMINATED NODE   READINESS GATES
 kube-system   coredns-fb8b8dccf-2hwr4                   1/1     Running   0          7h44m   10.244.0.3     pjr-ofckv-73-26   <none>           <none>
@@ -157,7 +159,7 @@ pjr-ofckv-73-26   Ready    master   7h47m   v1.14.2
 kubeadm join 10.255.73.26:6443 --token xfnfrl.4zlyx5ecu4t7n9ie \
     --discovery-token-ca-cert-hash sha256:c68bbf21a21439f8de92124337b4af04020f3332363e28522339933db813cc4b
 ```
-如果在部署master节点的时候没有保存, 则可以通过`kubeadm token list`找回, ip即为master节点所在机器的ip, 端口为`6443`(不确定)
+如果在部署master节点的时候没有保存, 则可以通过`kubeadm token list`找回, ip即为master节点所在机器的ip, 端口为`6443`(可能默认是)
 
 (2) 校验节点状态 `kubectl get nodes`
 
@@ -214,7 +216,9 @@ docker image rm registry.cn-qingdao.aliyuncs.com/wangxiaoke/kubernetes-dashboard
 ```sh
 kubectl create -f kubernetes-dashboard.yaml
 ```
-`kubernetes-dashboard.yaml`可以在任意位置新建即可, 具体内容参考: [文件内容](https://github.com/hapiman/gorice/blob/master/k8s/kubernetes-dashboard.yaml), 注意点: `NodePort`及`hostPath`设置, 官方提供的版本为: [官方版本](https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.0/src/deploy/recommended/kubernetes-dashboard.yaml), 可以对比一下不同之处
+`kubernetes-dashboard.yaml`可以在任意位置新建即可, 具体内容参考: [文件内容](https://github.com/hapiman/gorice/blob/master/k8s/kubernetes-dashboard.yaml)
+
+注意点: `NodePort`及`hostPath`设置, 官方提供的版本为: [官方版本](https://raw.githubusercontent.com/kubernetes/dashboard/v1.10.0/src/deploy/recommended/kubernetes-dashboard.yaml), 可以对比一下不同之处
 
 (3) 参看dashborad的pod是否安正常启动, 如果正常则说明启动成功
 ```sh
@@ -227,18 +231,18 @@ NAME                                      READY   STATUS    RESTARTS   AGE
 kubernetes-dashboard-595d866bb8-n8bh7     1/1     Running   0          141m
 ```
 
-此时如果遇到其他状态, 可以通过 `kubectl describe pod kubernetes-dashboard-xxxxxxxx-yyyy --namespace=kube-system`查看指定的`pod`的错误原因, 我在安装的时候, 就显示在node节点之上没有`kubernetes-dashboard-amd64:v1.10.0`这个镜像.
+此时如果遇到其他状态如`ContainerCreating`, 可以通过 `kubectl describe pod kubernetes-dashboard-xxxxxxxx-yyyy --namespace=kube-system`查看指定的`pod`的错误原因, 我在安装的时候, 就显示在node节点之上没有`kubernetes-dashboard-amd64:v1.10.0`这个镜像.
 
 另外,如果将错误修改之后,重新执行`kubectl create -f kubernetes-dashboard.yaml`会提示文件存在, 可以使用`kubectl delete -f kubernetes-dashboard.yaml`清除文件.
 
-另外`kubernetes-dashboard.yaml`文件中涉及的文件夹`/home/share/certs`也需要提前创建, 我在master和node节点都新建了
+另外,`kubernetes-dashboard.yaml`文件中涉及的文件夹`/home/share/certs`也需要提前创建, 我在master和node节点都新建了
 
 (4) 查看 dashboard的外网暴露端口
 ```sh
 kubectl get service --namespace=kube-system
 ```
 
-输出如下: `31234`即为外网访问接口
+输出如下: `31234`即为外网访问接口,在访问`dashboard`页面时会使用
 ```
 NAME                   TYPE        CLUSTER-IP       EXTERNAL-IP   PORT(S)                  AGE
 kube-dns               ClusterIP   10.96.0.10       <none>        53/UDP,53/TCP,9153/TCP   3d23h
@@ -288,9 +292,13 @@ token:      eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2V
 ```
 
 (9) 登录
+
 登录地址: `https://masterIp:31234(第(4)步输出)/#!/settings?namespace=default`
 
 选择`令牌`, 使用上面得到的`token`登录
+
+![登录页面](https://raw.githubusercontent.com/hapiman/gorice/master/k8s/dashboard-login.png)
+![管理界面首页](https://raw.githubusercontent.com/hapiman/gorice/master/k8s/dashboard-home.png)
 
 ### 安装问题
 * The connection to the server localhost:8080 was refused - did you specify the right host or port?
@@ -305,3 +313,7 @@ source ~/.bash_profile
 
 * node节点如果一直都处于`not ready`状态
 我在第一次安装的时候, 在node节点没有下载镜像, 在执行`kubeadm join`加入集群时, 确实能够加入集群,但是一直处于`UnReady`状态,通过`tail /var/log/messages`参看错误日志,才知道是因为镜像没有安装, 因为安装的时候程序会自动去`k8s.gcr.io`节点下拉镜像,不幸的是,没有`梯子`
+
+### 参考文档
+
+[利用Kubeadm部署 Kubernetes 1.13.1集群实践录](https://www.codesheep.cn/2018/12/27/kubeadm-k8s1-13-1/)
