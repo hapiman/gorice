@@ -29,6 +29,13 @@ kubelet --version
 sed -i "s/SELINUX=enforcing/SELINUX=disabled/g" /etc/selinux/config
 systemctl stop firewalld
 systemctl disable firewalld
+
+swapoff -a
+
+setenforce 0
+vi /etc/selinux/config
+SELINUX=disabled
+
 ```
 
 #### 3.安装组件 [所有机器执行]
@@ -255,7 +262,7 @@ kubernetes-dashboard   NodePort    10.108.134.118   <none>        443:31234/TCP 
 openssl genrsa -des3 -passout pass:x -out dashboard.pass.key 2048
 openssl rsa -passin pass:x -in dashboard.pass.key -out dashboard.key
 rm dashboard.pass.key
-openssl req -new -key dashboard.key -out dashboard.csr
+openssl req -new -key dashboard.key -out dashboard.csr # 全部回车
 ```
 
 (6) 生成SSL证书
@@ -304,7 +311,9 @@ token:      eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2V
 * The connection to the server localhost:8080 was refused - did you specify the right host or port?
 在node节点安装的时候会碰到该问题, 原因是node节点所在服务器缺少文件`/etc/kubernetes/admin.conf`,
 解决方法:
+
 1.需要将master节点上的`/etc/kubernetes/admin.conf`文件复制到node节点`/etc/kubernetes/admin.conf`中
+
 2.设置变量
 ```
 echo "export KUBECONFIG=/etc/kubernetes/admin.conf" >> ~/.bash_profile
