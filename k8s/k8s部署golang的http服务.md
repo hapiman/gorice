@@ -97,7 +97,7 @@ kubectl get pods -n kube-apps |grep goapp
 
 2.使用通用的ip访问, 但是需要使用配置文件中`31000`端口才行
 
-详细代码[在这里](https://github.com/hapiman/goappk8s/blob/master/README.md)
+详细代码[在这里](https://github.com/hapiman/goappk8s)
 
 `goapp-k8s.yaml`文件中定义了3类资源`Deployment`、`Service`、`Ingress`;
 
