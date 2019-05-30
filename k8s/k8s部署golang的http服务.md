@@ -65,8 +65,12 @@ docker build -t goappk8s .
 
 #### 部署
 ```sh
+# 新增名字为`kube-apps`的namespace, 文件内容在下面,在goapp-k8s.yaml会使用
+kubectl apply -f kube-apps.yaml
+
 # 在master机器上创建goapp-k8s.yaml,内容在下面,你需要更换`pengj/goappk8s:v1.0.0`为你自己的镜像仓库或者直接使用(省事)
 vim goapp-k8s.yaml
+
 # 部署配置, 如果多次部署会存在重复文件, 可以使用kubectl delete -f goapp-k8s.yaml删除
 kubectl apply -f goapp-k8s.yaml
 # 执行成功会输出
@@ -98,6 +102,16 @@ kubectl get pods -n kube-apps |grep goapp
 `goapp-k8s.yaml`文件中定义了3类资源`Deployment`、`Service`、`Ingress`;
 
 `Deployment`设置了`replicas: 2`，表示会运行两个`POD`，`strategy`的滚动策略为`RollingUpdate`，`resources`区域定义了一个POD的资源限制，通过`livenessProbe`和`readinessProbe`设置了健康检查
+
+`kube-apps.yaml`内容
+``` yaml
+apiVersion: v1
+kind: Namespace
+metadata:
+   name: kube-apps
+   labels:
+     name: kube-apps
+```
 
 `goapp-k8s.yaml`内容
 ```yaml
