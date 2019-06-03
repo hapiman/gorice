@@ -136,7 +136,7 @@ exit
 
 ### docker的导入导出操作
 
-#### 方法一、使用`docker save`和`docker load`
+* 方法一、使用`docker save`和`docker load`
 
 查看当前镜像列表：`docker images`
 
@@ -146,13 +146,13 @@ exit
 
 查看当前镜像列表：`docker images`
 
-#### 方法二、使用`docker export`和 `docker import`
+* 方法二、使用`docker export`和 `docker import`
 
 导入：`cat ubuntu-14.04-x86_64-minimal.tar.gz | docker import - ubuntu:zwx`
 
 导出：`docker export 16f568766019 > ubuntu.tar`，将镜像编号为`16f568766019`的镜像导出
 
-#### 两者区别
+* 两者区别
 
 `docker save images_name`：将一个镜像导出为文件，再使用docker load命令将文件导入为一个镜像，会保存该镜像的的**所有历史记录**。比docker export命令导出的文件大，很好理解，因为会保存镜像的所有历史记录。
 `docker export container_id`：将一个容器导出为文件，再使用docker import命令将容器导入成为一个新的镜像，但是相比docker save命令，容器文件会**丢失所有元数据和历史记录**，仅保存容器当时的状态，相当于虚拟机快照
