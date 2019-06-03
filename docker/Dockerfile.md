@@ -11,6 +11,7 @@ FROM <image>:<digest>
 三种写法，其中`tag`和`digest`是可选项，如果没有选择，那么默认值为latest
 
 - RUN
+
 运行指定的命令, RUN命令有两种格式
 ```
 1. RUN <command>
@@ -25,6 +26,7 @@ RUN ["/bin/bash", "-c", "echo hello"]
 注意：多行命令不要写多个RUN，原因是Dockerfile中每一个指令都会建立一层，多少个RUN就构建了多少层镜像，会造成镜像的臃肿、多层，不仅仅增加了构件部署的时间，还容易出错，RUN书写时的换行符是`\`。
 
 - CMD
+
 功能为容器启动时要运行的命令，语法有三种写法
 ```
 1. CMD ["executable","param1","param2"]
@@ -43,6 +45,7 @@ CMD [ "echo", "$HOME" ]
 `CMD`文件会在容器启动之后执行，一个`Dockerfile`可以包含多个`RUN`命令，但是只能有一个`CMD`命令
 
 - LABEL
+
 功能是为镜像指定标签，一个Dockerfile种可以有多个LABEL，如下：
 ```
 LABEL multi.label1="value1" \
@@ -52,12 +55,15 @@ other="value3"
 说明：**LABEL会继承基础镜像种的LABEL，如遇到key相同，则值覆盖**
 
 - MAINTAINER
+
 指定作者：`MAINTAINER <name>`
 
 - EXPOSE
+
 功能为暴漏容器运行时的监听端口给外部，但是EXPOSE并不会使容器访问主机的端口，如果想使得容器与主机的端口有映射关系，必须在容器启动的时候加上 -P参数
 
 - ENV
+
 功能为设置环境变量，语法有两种，两者的区别就是第一种是一次设置一个，第二种是一次设置多个
 ```
 1. ENV <key> <value>
@@ -65,6 +71,7 @@ other="value3"
 ```
 
 - ADD
+
 一个复制命令，把文件复制到镜像中。
 ```
 1. ADD <src>... <dest>
@@ -119,6 +126,7 @@ VOLUME /var/log /var/db
 ```
 
 - USER
+
 设置启动容器的用户，可以是用户名或UID
 ```
 USER daemo
