@@ -8,26 +8,21 @@ FROM <image>
 FROM <image>:<tag>
 FROM <image>:<digest>
 ```
-三种写法，其中<tag>和<digest> 是可选项，如果没有选择，那么默认值为latest
+三种写法，其中`tag`和`digest`是可选项，如果没有选择，那么默认值为latest
 
 - RUN
-
-功能为运行指定的命令, RUN命令有两种格式
+运行指定的命令, RUN命令有两种格式
 ```
 1. RUN <command>
 2. RUN ["executable", "param1", "param2"]
 ```
-第一种后边直接跟shell命令， 在linux操作系统上默认`/bin/sh -c`。
-第二种是类似于函数调用，可将executable理解成为可执行文件，后面就是两个参数。
 
 两种写法比对：
 ```
 RUN /bin/bash -c 'source $HOME/.bashrc; echo $HOME
 RUN ["/bin/bash", "-c", "echo hello"]
 ```
-注意：多行命令不要写多个RUN，原因是Dockerfile中每一个指令都会建立一层，多少个RUN就构建了多少层镜像，会造成镜像的臃肿、多层，不仅仅增加了构件部署的时间，还容易出错。
-
-RUN书写时的换行符是`\`
+注意：多行命令不要写多个RUN，原因是Dockerfile中每一个指令都会建立一层，多少个RUN就构建了多少层镜像，会造成镜像的臃肿、多层，不仅仅增加了构件部署的时间，还容易出错，RUN书写时的换行符是`\`。
 
 - CMD
 功能为容器启动时要运行的命令，语法有三种写法
@@ -41,9 +36,10 @@ RUN书写时的换行符是`\`
 CMD [ "sh", "-c", "echo $HOME"
 CMD [ "echo", "$HOME" ]
 ```
-补充细节：**这里边包括参数的一定要用双引号，就是",不能是单引号。千万不能写成单引号。**，原因是参数传递后，docker解析的是一个JSON array
+补充细节：参数需使用双引号，docker解析的是一个JSON array
 
 `RUN`命令会在`image`文件构建阶段执行，执行的结果会打包进入image文件；
+
 `CMD`文件会在容器启动之后执行，一个`Dockerfile`可以包含多个`RUN`命令，但是只能有一个`CMD`命令
 
 - LABEL
@@ -105,16 +101,12 @@ ADD http://example.com/foobar /
 相同点：只能写一条，如果写了多条，那么只有最后一条生效；容器启动时才运行，运行时机相同。
 
 不同点：
-ENTRYPOINT不会被运行的command覆盖，而CMD则会被覆盖；如当执行语句加一个命令`/bin/bash`，比如 docker run -it [image] /bin/bash，`CMD`会被忽略掉，命令`bash`将被执行；
-如果我们在Dockerfile种同时写了ENTRYPOINT和CMD，并且CMD指令不是一个完整的可执行命令，那么CMD指定的内容将会作为ENTRYPOINT的参数；
-如果我们在Dockerfile种同时写了ENTRYPOINT和CMD，并且CMD是一个完整的指令，那么它们两个会互相覆盖，谁在最后谁生效
 
-```
-FROM ubuntu
-ENTRYPOINT ["top", "-b"]
-CMD ls -al
-```
-那么将执行ls -al ,top -b不会执行。
+ENTRYPOINT不会被运行的command覆盖，而CMD则会被覆盖，如当执行语句加一个命令`/bin/bash`，比如 docker run -it [image] /bin/bash，`CMD`会被忽略掉，命令`bash`将被执行；
+
+如果我们在Dockerfile种同时写了ENTRYPOINT和CMD，并且CMD指令不是一个完整的可执行命令，那么CMD指定的内容将会作为ENTRYPOINT的参数；
+
+如果我们在Dockerfile种同时写了ENTRYPOINT和CMD，并且CMD是一个完整的指令，那么它们两个会互相覆盖，谁在最后谁生效。
 
 
 - VOLUME
@@ -135,14 +127,12 @@ USER UID
 
 
 - WORKDIR
+
 `WORKDIR /path/to/workdir`
 
 
 - ARG
 
-语法：
-
-ARG <name>[=<default value>]
 设置变量命令，ARG命令定义了一个变量，在docker build创建镜像的时候，使用 --build-arg <varname>=<value>来指定参数
 
 如果用户在build镜像时指定了一个参数没有定义在Dockerfile种，那么将有一个Warning提示: `[Warning] One or more build-args [foo] were not consumed.`
