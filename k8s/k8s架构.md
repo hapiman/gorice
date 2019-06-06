@@ -46,7 +46,9 @@
 (2) `replication-controller`：定期关联replicationController和Pod，保证replicationController定义的复制数量与实际运行Pod的数量总是一致的。
 
 **Node运行两个组件：**
+
 ![kubelet结构图](https://raw.githubusercontent.com/hapiman/gorice/master/k8s/node.png)
+
 * kubelet[节点上的Pod管家]
 
 1.负责Node节点上pod的创建、修改、监控、删除等全生命周期的管理
