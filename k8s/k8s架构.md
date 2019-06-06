@@ -38,8 +38,11 @@
 4.Scheduler在分发Pod到指定的Node节点后，会把Pod相关的信息`Binding`写回API Server
 
 * controller-manager[内部管理控制中心]
+
 负责执行各种控制器，目前有两类：
+
 (1) `endpoint-controller`：定期关联service和Pod(关联信息由endpoint对象维护)，保证service到Pod的映射总是最新的。
+
 (2) `replication-controller`：定期关联replicationController和Pod，保证replicationController定义的复制数量与实际运行Pod的数量总是一致的。
 
 **Node运行两个组件：**
