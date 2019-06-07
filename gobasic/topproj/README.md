@@ -1,11 +1,11 @@
-# 我知道的当前（2019年）最火的golang项目
+# 2019年最火的golang项目
 记录平时看到或者接触到的`golang`用的人较多或者出镜率比较高的项目。
 
 如果我漏了，谢谢帮我指出，我尽快补上。
 
-每一个项目都配上了关注度（star的数量）的图片。
+每一个项目都配上了关注度（star的数量）的图片，从中可以看出当前项目的热度，特别是与区块链相关的两个项目`fabric`和`go-ethereum`。
 
-整理过程中收获：
+**整理过程中收获：**
 
 1、了解到docker项目已经改名为moby，另外仓库做了迁移，当前为：`https://github.com/moby/moby`
 
@@ -179,6 +179,8 @@
 **声明式配置**：`etcd`声明式的容器管理，保证所部署的应用按照我们部署的方式运作.
 
 ![](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/k8s-lg.png)
+
+![](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/kubernetes.png)
 
 ## etcd
 
