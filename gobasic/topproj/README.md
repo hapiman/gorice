@@ -16,7 +16,7 @@
 
 # 项目列表
 
-## Gim
+## Gin
 仓库地址：`https://github.com/gin-gonic/gin`
 
 `Gin`是用Go语言实现的一款web框架。
