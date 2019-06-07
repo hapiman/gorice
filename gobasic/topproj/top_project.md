@@ -1,17 +1,26 @@
-## 我知道的当前（2019年）最火的golang项目
+# 我知道的当前（2019年）最火的golang项目
 记录平时看到或者接触到的`golang`用的人较多或者出镜率比较高的项目。
-如果我漏了，谢谢帮我指出。
 
-## 项目列表
+如果我漏了，谢谢帮我指出，我尽快补上。
 
-### Gim
+每一个项目都配上了关注度（star的数量）的图片。
+
+整理过程中收获：
+
+1、了解到docker项目已经改名为moby，另外仓库做了迁移，当前为：`https://github.com/moby/moby`
+
+2、了解到`时间序列数据库`，就是每一个数据都时间属性
+
+![](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/gin.png)
+
+# 项目列表
+
+## Gim
 仓库地址：`https://github.com/gin-gonic/gin`
 
 `Gin`是用Go语言实现的一块web框架。它的特点和`Martini`类似，但是API的性能更好，大概快40倍。如果你对性能要求极高，尝试一下Gin，不会让你失望。
 
-![](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/gin-lg.png)
-
-### beego
+## beego
 
 仓库地址：`https://github.com/astaxie/beego`
 
@@ -23,7 +32,7 @@
 
 ![](https://beego.me/static/img/beego_purple.png)
 
-### Caddy: Every Site on HTTPS
+## Caddy: Every Site on HTTPS
 仓库地址：`https://github.com/mholt/caddy`
 
 已经是一款可以用于生产的开源服务器，具有速度快，易使用，生产效率高的特点。当前已经可以在`Windows`, `Mac`, `Linux`, `BSD`, `Solaris`, and `Android`使用。
@@ -46,7 +55,7 @@
 
 ![](https://user-images.githubusercontent.com/1128849/36338535-05fb646a-136f-11e8-987b-e6901e717d5a.png)
 
-### nsq
+## nsq
 
 仓库地址：`https://github.com/nsqio/nsq`
 
@@ -58,7 +67,7 @@
 
 ![](https://camo.githubusercontent.com/5899f86a964cae96e599de9db4449e3294f104b4/687474703a2f2f6e73712e696f2f7374617469632f696d672f6e73715f626c75652e706e67)
 
-### Hugo
+## Hugo
 
 仓库地址：`https://github.com/gohugoio/hugo`
 
@@ -70,7 +79,7 @@
 
 ![](https://raw.githubusercontent.com/gohugoio/hugoDocs/master/static/img/hugo-logo.png)
 
-### gogs
+## gogs
 
 仓库地址：`https://github.com/gogs/gogs`
 
@@ -82,7 +91,7 @@
 
 ![](https://github.com/gogs/gogs/raw/master/public/img/gogs-large-resize.png?raw=true)
 
-### frp
+## frp
 
 仓库地址：`https://github.com/fatedier/frp`
 
@@ -90,7 +99,7 @@
 
 ![](https://github.com/fatedier/frp/raw/master/doc/pic/architecture.png)
 
-### proxypool
+## proxypool
 
 仓库地址：`https://github.com/henson/proxypool`
 
@@ -106,19 +115,19 @@
 
 **Api**：代理池的访问接口，提供get接口输出JSON，方便爬虫直接使用。
 
-### lantern
+## lantern
 
 仓库地址：`https://github.com/getlantern/lantern`
 
 区别于，`SS`，它是分布式的，点对点的，通过蓝灯，你可以和自由上网的用户共享网络，对方可以自由上网，你也就自由了。
 
-### shadowsocks-go
+## shadowsocks-go
 
 仓库地址：`https://github.com/shadowsocks/shadowsocks-go`
 
 `SS`的Go语言实现。
 
-### syncthing
+## syncthing
 
 仓库地址：`https://github.com/syncthing/syncthing`
 
@@ -142,7 +151,7 @@
 
 ![](https://github.com/syncthing/syncthing/raw/master/assets/logo-text-128.png)
 
-### kubernetes
+## kubernetes
 
 仓库地址：`https://github.com/kubernetes/kubernetes`
 
@@ -158,7 +167,7 @@
 
 ![](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/k8s-lg.png)
 
-### etcd
+## etcd
 
 仓库地址：`https://github.com/etcd-io/etcd`
 
@@ -176,7 +185,7 @@
 
 `etcd`当前频繁的和`Kubernetes`,`locksmith`,`vulcand`, `Doorman`等项目配合使用。
 
-### moby
+## moby
 
 仓库地址：`https://github.com/moby/moby`
 
@@ -193,7 +202,7 @@ Moby是一个以强大的原则为指导的开放式项目，旨在维持模块�
 可用安全性：Moby提供安全的默认值，而不影响可用性。
 
 以开发人员为中心
-### Traefik
+## Traefik
 
 仓库地址：`https://github.com/containous/traefik`
 
@@ -202,7 +211,7 @@ Moby是一个以强大的原则为指导的开放式项目，旨在维持模块�
 
 ![](https://blog.qikqiak.com/img/posts/traefik-architecture.png)
 
-### influxdb
+## influxdb
 
 仓库地址：`https://github.com/influxdata/influxdb`
 
@@ -221,7 +230,7 @@ Influxdb是一个开源的分布式时序、时间和指标数据库，使用go�
 
 ![influxdb](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/influxdb-lg.png)
 
-### prometheus
+## prometheus
 
 仓库地址： `https://github.com/prometheus/prometheus`
 
@@ -234,7 +243,7 @@ Influxdb是一个开源的分布式时序、时间和指标数据库，使用go�
 `Prometheus`提供的是一整套监控体系, 包括数据的采集，数据存储，报警，甚至是绘图(只不过很烂，官方也推荐使用 grafana)。
 而`InfluxDB`只是一个时序数据库。同为时间序列数据库，两者对比：[prometheus和influxdb对比](https://www.jianshu.com/p/d666ee3147d2)
 
-### Grafana
+## Grafana
 
 仓库地址：`https://github.com/grafana/grafana`
 
@@ -242,19 +251,19 @@ Grafana是一款开源的，具有功能丰富的度量标准仪表板和图形�
 
 ![](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/grafana-lg.png)
 
-### go-ethereum
+## go-ethereum
 
 仓库地址：`https://github.com/ethereum/go-ethereum`
 
 以太坊协议的官方Go语言实现。
 
-### fabric
+## fabric
 
 仓库地址：`https://github.com/hyperledger/fabric`
 
 区块链超级账本`Hyperledger Fabric`实现，用于联盟链开发。
 
-#### Drone
+## Drone
 
 仓库地址：`https://github.com/drone/drone`
 
