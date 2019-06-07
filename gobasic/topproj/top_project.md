@@ -92,7 +92,7 @@
 
 ### proxypool
 
-仓库地址：https://github.com/henson/proxypool
+仓库地址：`https://github.com/henson/proxypool`
 
 采集免费的代理资源为爬虫提供有效的IP代理
 
@@ -108,19 +108,19 @@
 
 ### lantern
 
-仓库地址：https://github.com/getlantern/lantern
+仓库地址：`https://github.com/getlantern/lantern`
 
 区别于，`SS`，它是分布式的，点对点的，通过蓝灯，你可以和自由上网的用户共享网络，对方可以自由上网，你也就自由了。
 
 ### shadowsocks-go
 
-仓库地址：https://github.com/shadowsocks/shadowsocks-go
+仓库地址：`https://github.com/shadowsocks/shadowsocks-go`
 
 `SS`的Go语言实现。
 
 ### syncthing
 
-仓库地址：https://github.com/syncthing/syncthing
+仓库地址：`https://github.com/syncthing/syncthing`
 
 `Syncthing`是一个持续不断的文件同步项目，能够在两台或者多台电脑上同步文件，使用了其独有的对等自由块交换协议，速度极快。
 
@@ -174,7 +174,7 @@
 
 `etcd`当前频繁的和`Kubernetes`,`locksmith`,`vulcand`, `Doorman`等项目配合使用。
 
-![](https://github.com/etcd-io/etcd/raw/master/logos/etcd-horizontal-color.svg?sanitize=true)
+![docker](https://raw.githubusercontent.com/moby/moby/master/docs/static_files/etcd-lg.png)
 
 ### moby
 
@@ -216,11 +216,11 @@ Influxdb是一个开源的分布式时序、时间和指标数据库，使用go�
 `度量（Metrics）`：对实时大量数据进行计算；
 `事件（Event）`：支持任意的事件数据，换句话说，任意事件的数据我们都可以做操作。
 
-![](https://www.influxdata.com/wp-content/uploads/influx-logo-white-01.svg)
+![docker](https://raw.githubusercontent.com/moby/moby/master/docs/static_files/influxdb-lg.png)
 
 ### prometheus
 
-仓库地址： https://github.com/prometheus/prometheus
+仓库地址： `https://github.com/prometheus/prometheus`
 
 一个开源的服务监控系统和时间序列数据库。
 
@@ -233,7 +233,7 @@ Influxdb是一个开源的分布式时序、时间和指标数据库，使用go�
 
 ### Grafana
 
-仓库地址：https://github.com/grafana/grafana
+仓库地址：`https://github.com/grafana/grafana`
 
 Grafana是一款开源的，具有功能丰富的度量标准仪表板和图形编辑器，用于Graphite，Elasticsearch，OpenTSDB，Prometheus和InfluxDB等数据显示，定制化高。
 
@@ -241,7 +241,7 @@ Grafana是一款开源的，具有功能丰富的度量标准仪表板和图形�
 
 ### go-ethereum
 
-仓库地址：https://github.com/ethereum/go-ethereum
+仓库地址：`https://github.com/ethereum/go-ethereum`
 
 以太坊协议的官方Go语言实现。
 
@@ -253,7 +253,7 @@ Grafana是一款开源的，具有功能丰富的度量标准仪表板和图形�
 
 #### Drone
 
-仓库地址：https://github.com/drone/drone
+仓库地址：`https://github.com/drone/drone`
 
 Drone是一种基于容器技术的持续交付系统。Drone使用简单的YAML配置文件（docker-compose的超集）来定义和执行Docker容器中的Pipelines。
 
