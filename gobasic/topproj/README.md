@@ -37,7 +37,7 @@
 框架特性：`简单化`，`智能化`，`模块化`，`高性能`。
 ![](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/beego.png)
 
-## Caddy:
+## Caddy
 仓库地址：`https://github.com/mholt/caddy`
 
 一款可以用于生产的开源服务器，具有速度快，易使用，生产效率高的特点。
