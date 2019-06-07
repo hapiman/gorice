@@ -4,16 +4,14 @@
 
 ## 项目列表
 
-### web服务器
-
-#### Gim
+### Gim
 仓库地址：`https://github.com/gin-gonic/gin`
 
 `Gin`是用Go语言实现的一块web框架。它的特点和`Martini`类似，但是API的性能更好，大概快40倍。如果你对性能要求极高，尝试一下Gin，不会让你失望。
 
-![](https://raw.githubusercontent.com/gin-gonic/logo/master/color.png)
+![](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/gin-lg.png)
 
-#### beego
+### beego
 
 仓库地址：`https://github.com/astaxie/beego`
 
@@ -25,7 +23,7 @@
 
 ![](https://beego.me/static/img/beego_purple.png)
 
-#### Caddy: Every Site on HTTPS
+### Caddy: Every Site on HTTPS
 仓库地址：`https://github.com/mholt/caddy`
 
 已经是一款可以用于生产的开源服务器，具有速度快，易使用，生产效率高的特点。当前已经可以在`Windows`, `Mac`, `Linux`, `BSD`, `Solaris`, and `Android`使用。
@@ -48,8 +46,7 @@
 
 ![](https://user-images.githubusercontent.com/1128849/36338535-05fb646a-136f-11e8-987b-e6901e717d5a.png)
 
-### 中间件
-#### nsq
+### nsq
 
 仓库地址：`https://github.com/nsqio/nsq`
 
@@ -61,10 +58,7 @@
 
 ![](https://camo.githubusercontent.com/5899f86a964cae96e599de9db4449e3294f104b4/687474703a2f2f6e73712e696f2f7374617469632f696d672f6e73715f626c75652e706e67)
 
-
-### 工具
-
-#### Hugo
+### Hugo
 
 仓库地址：`https://github.com/gohugoio/hugo`
 
@@ -76,7 +70,7 @@
 
 ![](https://raw.githubusercontent.com/gohugoio/hugoDocs/master/static/img/hugo-logo.png)
 
-#### gogs
+### gogs
 
 仓库地址：`https://github.com/gogs/gogs`
 
@@ -88,7 +82,7 @@
 
 ![](https://github.com/gogs/gogs/raw/master/public/img/gogs-large-resize.png?raw=true)
 
-#### frp
+### frp
 
 仓库地址：`https://github.com/fatedier/frp`
 
@@ -96,7 +90,7 @@
 
 ![](https://github.com/fatedier/frp/raw/master/doc/pic/architecture.png)
 
-#### proxypool
+### proxypool
 
 仓库地址：https://github.com/henson/proxypool
 
@@ -112,19 +106,19 @@
 
 **Api**：代理池的访问接口，提供get接口输出JSON，方便爬虫直接使用。
 
-#### lantern
+### lantern
 
 仓库地址：https://github.com/getlantern/lantern
 
 区别于，`SS`，它是分布式的，点对点的，通过蓝灯，你可以和自由上网的用户共享网络，对方可以自由上网，你也就自由了。
 
-#### shadowsocks-go
+### shadowsocks-go
 
 仓库地址：https://github.com/shadowsocks/shadowsocks-go
 
 `SS`的Go语言实现。
 
-#### syncthing
+### syncthing
 
 仓库地址：https://github.com/syncthing/syncthing
 
@@ -148,8 +142,6 @@
 
 ![](https://github.com/syncthing/syncthing/raw/master/assets/logo-text-128.png)
 
-### 运维
-
 ### kubernetes
 
 仓库地址：`https://github.com/kubernetes/kubernetes`
@@ -164,9 +156,9 @@
 
 **声明式配置**：`etcd`声明式的容器管理，保证所部署的应用按照我们部署的方式运作.
 
-![](https://github.com/kubernetes/kubernetes/raw/master/logo/logo.png)
+![](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/k8s-lg.png)
 
-#### etcd
+### etcd
 
 仓库地址：`https://github.com/etcd-io/etcd`
 
@@ -184,7 +176,7 @@
 
 ![](https://github.com/etcd-io/etcd/raw/master/logos/etcd-horizontal-color.svg?sanitize=true)
 
-#### moby
+### moby
 
 仓库地址：`https://github.com/moby/moby`
 
@@ -201,16 +193,16 @@ Moby是一个以强大的原则为指导的开放式项目，旨在维持模块�
 以开发人员为中心
 
 ![docker](https://raw.githubusercontent.com/moby/moby/master/docs/static_files/moby-project-logo.png)
-#### Traefik
+### Traefik
 
 仓库地址：`https://github.com/containous/traefik`
 
 `Traefik`是一款开源的反向代理与负载均衡工具。它最大的优点是能够与常见的微服务系统直接整合，可以实现自动化动态配置。
 目前支持 Docker、Swarm、Mesos/Marathon、 Mesos、Kubernetes、Consul、Etcd、Zookeeper、BoltDB、Rest API 等等后端模型。
-![](https://github.com/containous/traefik/raw/master/docs/content/assets/img/traefik.logo.png)
+
 ![](https://blog.qikqiak.com/img/posts/traefik-architecture.png)
 
-#### influxdb
+### influxdb
 
 仓库地址：`https://github.com/influxdata/influxdb`
 
@@ -226,43 +218,39 @@ Influxdb是一个开源的分布式时序、时间和指标数据库，使用go�
 
 ![](https://www.influxdata.com/wp-content/uploads/influx-logo-white-01.svg)
 
-#### prometheus
+### prometheus
 
 仓库地址： https://github.com/prometheus/prometheus
 
 一个开源的服务监控系统和时间序列数据库。
 
-![](https://camo.githubusercontent.com/78b3b29d22cea8eee673e34fd204818ea532c171/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f70726f6d6574686575732f70726f6d65746865757340633334323537643036396336333036383564613335626365663038343633326666643564363230392f646f63756d656e746174696f6e2f696d616765732f6172636869746563747572652e737667)
+![](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/prometheus-lg.png)
 
 
 **首先需要明白：**
 `Prometheus`提供的是一整套监控体系, 包括数据的采集，数据存储，报警，甚至是绘图(只不过很烂，官方也推荐使用 grafana)。
 而`InfluxDB`只是一个时序数据库。同为时间序列数据库，两者对比：[prometheus和influxdb对比](https://www.jianshu.com/p/d666ee3147d2)
 
-#### Grafana
+### Grafana
 
 仓库地址：https://github.com/grafana/grafana
 
 Grafana是一款开源的，具有功能丰富的度量标准仪表板和图形编辑器，用于Graphite，Elasticsearch，OpenTSDB，Prometheus和InfluxDB等数据显示，定制化高。
 
+![](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/grafana-lg.png)
 
-### 区块链
-
-#### go-ethereum
+### go-ethereum
 
 仓库地址：https://github.com/ethereum/go-ethereum
 
 以太坊协议的官方Go语言实现。
 
-#### fabric
+### fabric
 
 仓库地址：`https://github.com/hyperledger/fabric`
 
 区块链超级账本`Hyperledger Fabric`实现，用于联盟链开发。
 
-
-
-### 测试
 #### Drone
 
 仓库地址：https://github.com/drone/drone
