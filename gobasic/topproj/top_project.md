@@ -11,31 +11,30 @@
 
 2、了解到`时间序列数据库`，就是每一个数据都时间属性
 
-![](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/gin.png)
-
 # 项目列表
 
 ## Gim
 仓库地址：`https://github.com/gin-gonic/gin`
 
-`Gin`是用Go语言实现的一块web框架。它的特点和`Martini`类似，但是API的性能更好，大概快40倍。如果你对性能要求极高，尝试一下Gin，不会让你失望。
-
+`Gin`是用Go语言实现的一款web框架。它的特点和`Martini`类似，但是API的性能更好，大概快40倍。如果你对性能要求极高，尝试一下Gin，不会让你失望。
+![](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/gin.png)
 ## beego
 
 仓库地址：`https://github.com/astaxie/beego`
-
+![](https://beego.me/static/img/beego_purple.png)
 一个使用 Go 的思维来帮助您构建并开发 Go 应用程序的开源框架。
 
 一个快速开发 Go 应用的 HTTP 框架，他可以用来快速开发 API、Web 及后端服务等各种应用，是一个 RESTful 的框架，主要设计灵感来源于 tornado、sinatra 和 flask 这三个框架，但是结合了 Go 本身的一些特性（interface、struct 嵌入等）而设计的一个框架。
 
 框架特性：`简单化`，`智能化`，`模块化`，`高性能`。
-
-![](https://beego.me/static/img/beego_purple.png)
+![](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/beego.png)
 
 ## Caddy: Every Site on HTTPS
 仓库地址：`https://github.com/mholt/caddy`
 
 已经是一款可以用于生产的开源服务器，具有速度快，易使用，生产效率高的特点。当前已经可以在`Windows`, `Mac`, `Linux`, `BSD`, `Solaris`, and `Android`使用。
+
+![](https://user-images.githubusercontent.com/1128849/36338535-05fb646a-136f-11e8-987b-e6901e717d5a.png)
 
 具有如下特点：
 
@@ -53,7 +52,7 @@
 
 7. 为了保证安全连接，使用了TLS session ticket key rotation
 
-![](https://user-images.githubusercontent.com/1128849/36338535-05fb646a-136f-11e8-987b-e6901e717d5a.png)
+![](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/caddy.png)
 
 ## nsq
 
