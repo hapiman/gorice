@@ -13,6 +13,18 @@
 
 ![](https://raw.githubusercontent.com/gin-gonic/logo/master/color.png)
 
+#### beego
+
+仓库地址：`https://github.com/astaxie/beego`
+
+一个使用 Go 的思维来帮助您构建并开发 Go 应用程序的开源框架。
+
+一个快速开发 Go 应用的 HTTP 框架，他可以用来快速开发 API、Web 及后端服务等各种应用，是一个 RESTful 的框架，主要设计灵感来源于 tornado、sinatra 和 flask 这三个框架，但是结合了 Go 本身的一些特性（interface、struct 嵌入等）而设计的一个框架。
+
+框架特性：`简单化`，`智能化`，`模块化`，`高性能`。
+
+![](https://beego.me/static/img/beego_purple.png)
+
 #### Caddy: Every Site on HTTPS
 仓库地址：`https://github.com/mholt/caddy`
 
@@ -36,7 +48,7 @@
 
 ![](https://user-images.githubusercontent.com/1128849/36338535-05fb646a-136f-11e8-987b-e6901e717d5a.png)
 
-### 消息中间件
+### 中间件
 #### nsq
 
 仓库地址：`https://github.com/nsqio/nsq`
@@ -49,6 +61,7 @@
 
 ![](https://camo.githubusercontent.com/5899f86a964cae96e599de9db4449e3294f104b4/687474703a2f2f6e73712e696f2f7374617469632f696d672f6e73715f626c75652e706e67)
 
+
 ### 工具
 
 #### Hugo
@@ -57,7 +70,7 @@
 
 一个静态的，可伸缩的静态网页生成器，宣称世界上最快的建站框架，不过这点和`wordpress`怎么比呢。
 
-`Hugo`针对速度、易用性和可配置性进行了优化。
+`Go`语言编写的静态网站生成器，速度快，易用，可配置
 
 `Hugo`获取一个包含内容和模板的目录，并将其呈现为完整的HTML网站。
 
@@ -99,11 +112,23 @@
 
 **Api**：代理池的访问接口，提供get接口输出JSON，方便爬虫直接使用。
 
+#### lantern
+
+仓库地址：https://github.com/getlantern/lantern
+
+区别于，`SS`，它是分布式的，点对点的，通过蓝灯，你可以和自由上网的用户共享网络，对方可以自由上网，你也就自由了。
+
+#### shadowsocks-go
+
+仓库地址：https://github.com/shadowsocks/shadowsocks-go
+
+`SS`的Go语言实现。
+
 #### syncthing
 
 仓库地址：https://github.com/syncthing/syncthing
 
-`Syncthing`是一个持续不断的文件同步项目。它能够在两台或者多台电脑上同步文件。
+`Syncthing`是一个持续不断的文件同步项目，能够在两台或者多台电脑上同步文件，使用了其独有的对等自由块交换协议，速度极快。
 
 下面列出是这个项目的目标计划，重要性依次递减。当然这只是其中一部分目标，如果想查看更多，可以去看目标文档。
 
@@ -185,7 +210,63 @@ Moby是一个以强大的原则为指导的开放式项目，旨在维持模块�
 ![](https://github.com/containous/traefik/raw/master/docs/content/assets/img/traefik.logo.png)
 ![](https://blog.qikqiak.com/img/posts/traefik-architecture.png)
 
+#### influxdb
+
+仓库地址：`https://github.com/influxdata/influxdb`
+
+influxdb是目前比较流行的时间序列数据库。
+
+> 时间序列数据库：最简单的定义就是数据格式里包含Timestamp字段的数据，几乎所有的数据其实都可以打上一个Timestamp字段。时间序列数据的更重要的一个属性是如何去查询它，包括数据的过滤，计算等等。
+
+Influxdb是一个开源的分布式时序、时间和指标数据库，使用go语言编写，无需外部依赖。
+它有三大特性：
+`时序性（Time Series）`：与时间相关的函数的灵活使用（诸如最大、最小、求和等）；
+`度量（Metrics）`：对实时大量数据进行计算；
+`事件（Event）`：支持任意的事件数据，换句话说，任意事件的数据我们都可以做操作。
+
+![](https://www.influxdata.com/wp-content/uploads/influx-logo-white-01.svg)
+
+#### prometheus
+
+仓库地址： https://github.com/prometheus/prometheus
+
+一个开源的服务监控系统和时间序列数据库。
+
+![](https://camo.githubusercontent.com/78b3b29d22cea8eee673e34fd204818ea532c171/68747470733a2f2f63646e2e6a7364656c6976722e6e65742f67682f70726f6d6574686575732f70726f6d65746865757340633334323537643036396336333036383564613335626365663038343633326666643564363230392f646f63756d656e746174696f6e2f696d616765732f6172636869746563747572652e737667)
+
+
+**首先需要明白：**
+`Prometheus`提供的是一整套监控体系, 包括数据的采集，数据存储，报警，甚至是绘图(只不过很烂，官方也推荐使用 grafana)。
+而`InfluxDB`只是一个时序数据库。同为时间序列数据库，两者对比：[prometheus和influxdb对比](https://www.jianshu.com/p/d666ee3147d2)
+
+#### Grafana
+
+仓库地址：https://github.com/grafana/grafana
+
+Grafana是一款开源的，具有功能丰富的度量标准仪表板和图形编辑器，用于Graphite，Elasticsearch，OpenTSDB，Prometheus和InfluxDB等数据显示，定制化高。
+
+
 ### 区块链
 
-#### fabric
 #### go-ethereum
+
+仓库地址：https://github.com/ethereum/go-ethereum
+
+以太坊协议的官方Go语言实现。
+
+#### fabric
+
+仓库地址：`https://github.com/hyperledger/fabric`
+
+区块链超级账本`Hyperledger Fabric`实现，用于联盟链开发。
+
+
+
+### 测试
+#### Drone
+
+仓库地址：https://github.com/drone/drone
+
+Drone是一种基于容器技术的持续交付系统。Drone使用简单的YAML配置文件（docker-compose的超集）来定义和执行Docker容器中的Pipelines。
+
+Drone与流行的源代码管理系统无缝集成，包括GitHub，GitHub Enterprise，Bitbucket等。
