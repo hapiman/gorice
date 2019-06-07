@@ -1,7 +1,7 @@
 # 2019年最火热的Golang项目
 记录用的人较多或者出镜率比较高的`Golang`项目。
 
-如果我漏了，麻烦帮我指出，我尽快补上，谢谢！
+如果我漏了你觉得重要的项目，麻烦帮我指出，我尽快补上，谢谢！
 
 每一个项目都配上了`Star`增长趋势的图片，从中可以看出当前项目的热度。
 
@@ -23,7 +23,7 @@
 它的特点和`Martini`类似，但是API的性能更好，大概快40倍。如果你对性能要求极高，尝试一下Gin，不会让你失望。
 
 ![](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/gin.png)
-## beego
+## Beego
 
 仓库地址：`https://github.com/astaxie/beego`
 
@@ -49,7 +49,7 @@
 
 1. 使用`Caddyfile`方便配置
 
-2. Auto HTTPS Caddy 使用 Let’s Encrypt 让你的站点全自动变成全站HTTPS，无需任何配置。当然你想使用自己的证书也是可以的。
+2. Auto HTTPS Caddy 使用 Let’s Encrypt 让你的站点全自动变成全站HTTPS，无需任何配置。当然你想使用自己的证书也行。
 
 3. HTTP/2 全自动支持HTTP/2协议，无需任何配置。
 
@@ -63,7 +63,7 @@
 
 ![](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/caddy.png)
 
-## nsq
+## Nsq
 
 仓库地址：`https://github.com/nsqio/nsq`
 
@@ -88,7 +88,7 @@
 ![](https://raw.githubusercontent.com/gohugoio/hugoDocs/master/static/img/hugo-logo.png)
 
 ![](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/hugo.png)
-## gogs
+## Gogs
 
 仓库地址：`https://github.com/gogs/gogs`
 
@@ -102,7 +102,7 @@
 
 ![](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/gogs.png)
 
-## frp
+## Frp
 
 仓库地址：`https://github.com/fatedier/frp`
 
@@ -112,7 +112,7 @@
 
 ![](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/frp.png)
 
-## proxypool
+## Proxypool
 
 仓库地址：`https://github.com/henson/proxypool`
 
@@ -128,14 +128,14 @@
 
 **Api**：代理池的访问接口，提供get接口输出JSON，方便爬虫直接使用。
 
-## lantern
+## Lantern
 
 仓库地址：`https://github.com/getlantern/lantern`
 
 区别于，`SS`，它是分布式的，点对点的，通过蓝灯，你可以和自由上网的用户共享网络，对方可以自由上网，你也就自由了。
 ![](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/proxypool.png)
 
-## shadowsocks-go
+## Shadowsocks-go
 
 仓库地址：`https://github.com/shadowsocks/shadowsocks-go`
 
@@ -143,7 +143,7 @@
 
 ![](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/shadowsocks-go.png)
 
-## syncthing
+## Syncthing
 
 仓库地址：`https://github.com/syncthing/syncthing`
 
@@ -165,7 +165,7 @@
 
 ![](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/syncthing.png)
 
-## kubernetes
+## Kubernetes
 
 仓库地址：`https://github.com/kubernetes/kubernetes`
 
@@ -183,7 +183,7 @@
 
 ![](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/kubernetes.png)
 
-## etcd
+## Etcd
 
 仓库地址：`https://github.com/etcd-io/etcd`
 
@@ -203,7 +203,7 @@
 
 ![](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/etcd.png)
 
-## moby
+## Moby
 
 仓库地址：`https://github.com/moby/moby`
 
@@ -232,7 +232,7 @@ Moby是一个开放式项目，旨在维持模块化和灵活性。
 
 ![](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/traefik.png)
 
-## influxdb
+## Influxdb
 
 仓库地址：`https://github.com/influxdata/influxdb`
 
@@ -254,7 +254,7 @@ Influxdb是一个开源的分布式时序、时间和指标数据库，使用go�
 
 ![](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/influxdb.png)
 
-## prometheus
+## Prometheus
 
 仓库地址： `https://github.com/prometheus/prometheus`
 
@@ -277,7 +277,7 @@ Grafana是一款开源的，具有丰富功能的度量标准仪表板和图形�
 
 ![](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/grafana.png)
 
-## go-ethereum
+## Go-ethereum
 
 仓库地址：`https://github.com/ethereum/go-ethereum`
 
@@ -285,7 +285,7 @@ Grafana是一款开源的，具有丰富功能的度量标准仪表板和图形�
 
 ![](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/go-ethereum.png)
 
-## fabric
+## Fabric
 
 仓库地址：`https://github.com/hyperledger/fabric`
 
