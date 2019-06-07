@@ -162,6 +162,8 @@
 
 仓库地址：`https://github.com/etcd-io/etcd`
 
+![etcd](https://raw.githubusercontent.com/moby/moby/master/docs/static_files/etcd-lg.png)
+
 分布式可靠的键值存储，尤其对分布式系统中极其重要的数据，其特点：
 
 `Simple`: API设计合理，面向用户
@@ -174,13 +176,13 @@
 
 `etcd`当前频繁的和`Kubernetes`,`locksmith`,`vulcand`, `Doorman`等项目配合使用。
 
-![docker](https://raw.githubusercontent.com/moby/moby/master/docs/static_files/etcd-lg.png)
-
 ### moby
 
 仓库地址：`https://github.com/moby/moby`
 
 该项目的作用是在容器化生态中组装容器的，以前的大名叫做：`docker`，这个大家都知道。后来经过一段纠结的时刻，改名字了，原因[在这儿](https://www.zhihu.com/question/58805021)
+
+![docker](https://raw.githubusercontent.com/moby/moby/master/docs/static_files/moby-project-logo.png)
 
 Moby是一个以强大的原则为指导的开放式项目，旨在维持模块化和灵活性，对用户经验没有太强的意见。
 
@@ -191,8 +193,6 @@ Moby是一个以强大的原则为指导的开放式项目，旨在维持模块�
 可用安全性：Moby提供安全的默认值，而不影响可用性。
 
 以开发人员为中心
-
-![docker](https://raw.githubusercontent.com/moby/moby/master/docs/static_files/moby-project-logo.png)
 ### Traefik
 
 仓库地址：`https://github.com/containous/traefik`
@@ -212,11 +212,14 @@ influxdb是目前比较流行的时间序列数据库。
 
 Influxdb是一个开源的分布式时序、时间和指标数据库，使用go语言编写，无需外部依赖。
 它有三大特性：
+
 `时序性（Time Series）`：与时间相关的函数的灵活使用（诸如最大、最小、求和等）；
+
 `度量（Metrics）`：对实时大量数据进行计算；
+
 `事件（Event）`：支持任意的事件数据，换句话说，任意事件的数据我们都可以做操作。
 
-![docker](https://raw.githubusercontent.com/moby/moby/master/docs/static_files/influxdb-lg.png)
+![docker](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/influxdb-lg.png)
 
 ### prometheus
 
