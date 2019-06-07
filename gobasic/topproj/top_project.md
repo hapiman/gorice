@@ -162,7 +162,7 @@
 
 仓库地址：`https://github.com/etcd-io/etcd`
 
-![etcd](https://raw.githubusercontent.com/moby/moby/master/docs/static_files/etcd-lg.png)
+![etcd](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/etcd-lg.png)
 
 分布式可靠的键值存储，尤其对分布式系统中极其重要的数据，其特点：
 
@@ -219,7 +219,7 @@ Influxdb是一个开源的分布式时序、时间和指标数据库，使用go�
 
 `事件（Event）`：支持任意的事件数据，换句话说，任意事件的数据我们都可以做操作。
 
-![docker](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/influxdb-lg.png)
+![influxdb](https://raw.githubusercontent.com/hapiman/gorice/master/gobasic/topproj/images/influxdb-lg.png)
 
 ### prometheus
 
