@@ -5,6 +5,33 @@ Kubernetes集群各模块通信方式。
 Kubernetes集群各模块，主要分为客户端，`Master`节点，`Node`节点，`etcd`集群。
 ![](https://raw.githubusercontent.com/hapiman/gorice/master/k8s/structure2.png)
 
+Kubernetes关键字
+
+`Master（主节点）`： 控制Kubernetes节点的机器，也是创建作业任务的地方。
+
+`Node（节点）`： 这些机器在Kubernetes主节点的控制下执行被分配的任务。在Node上运行的服务进程包括`docker daemon`，`Kubelet` 和 `Kube-Proxy`。
+
+`Pod`： 由一个或多个容器构成的集合，作为一个整体被部署到一个单一节点。同一个 pod 中的容器共享 IP 地址、进程间通讯（IPC）、主机名以及其它资源(如内存)。Pod 将底层容器的网络和存储抽象出来，使得集群内的容器迁移更为便捷。Kubernetes的其它组件帮助你对 pod 进行负载均衡，以保证有合适数量的容器支撑你的工作负载。Pod的生命周期是通过`Replication Controller`来管理的。在整个过程中，Pod处于4种状态之一：Pending, Running, Succeeded, Failed。
+
+`Labels`: Service通过Label找到Pod组
+
+`Replication controller（复制控制器）`： 控制一个 pod 在集群上运行的实例数量。确保任何时候Kubernetes集群中有指定数量的Pod副本在运行， 如果少于指定数量的Pod副本，Replication Controller会启动新的Pod，反之会杀死多余的以保证数量不变。
+
+`Service（服务）`： 将服务内容与具体的pod分离。Kubernetes服务代理负责自动将服务请求分发到正确的pod处，不管pod移动到集群中的什么位置，甚至可以被替换掉。Service是定义一系列Pod以及访问这些Pod的策略的一层抽象。
+![](https://raw.githubusercontent.com/hapiman/gorice/master/k8s/images/srv.png)
+
+`Kubelet`： 这个**守护进程**从master或者其他地方获取本节点需要达到什么状态, 运行在各个工作节点上，负责获取容器列表，运行的副本数量, 网络或者存储如何配置,保证被声明的容器已经启动并且正常运行。
+
+`kubectl`： 这是 Kubernetes 的命令行配置工具。
+
+`kube-proxy`: 实现集群网络服务负载均衡
+
+`Volume(存储卷)`: Volume是Pod中能够被多个容器访问的共享目录。
+
+`Namespace(命名空间)`: 通过将系统内部的对象“分配”到不同的Namespace中，形成逻辑上的不同分组，便于在共享使用整个集群的资源同时还能分别管理。
+
+`Annotation(注解)`：与Label类似，但Label定义的是对象的元数据，而Annotation则是用户任意定义的“附加”信息。
+
 ### Kubernetes关键组件
 
 #### Master三个组件：
