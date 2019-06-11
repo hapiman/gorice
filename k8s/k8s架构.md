@@ -23,12 +23,12 @@
 
 #### Master运行三个组件：
 
-**apiserver[资源操作入口]**
+第一、apiserver[资源操作入口]
 
 作为kubernetes系统的入口，封装了核心对象的增删改查操作，以RESTFul接口方式提供给外部客户和内部组件调用。
 它维护的REST对象将持久化到etcd（一个分布式强一致性的key/value存储）。
 
-**scheduler[集群分发调度器]**
+第二、scheduler[集群分发调度器]
 
 集群调度器,负责集群的资源调度，为新建的Pod分配机器。
 
@@ -40,7 +40,7 @@
 
 4.Scheduler在分发Pod到指定的Node节点后，会把Pod相关的信息`Binding`写回API Server
 
-**controller-manager[内部管理控制中心]**
+第三、controller-manager[内部管理控制中心]
 
 负责执行各种控制器，目前有两类：
 
@@ -52,14 +52,15 @@
 
 ![kubelet结构图](https://raw.githubusercontent.com/hapiman/gorice/master/k8s/node.png)
 
-* kubelet[节点上的Pod管家]
+第一、kubelet[节点上的Pod管家]：
 
 1.负责Node节点上pod的创建、修改、监控、删除等全生命周期的管理
 
 2.定时上报本Node的状态信息给API Server。
 
 3.kubelet是Master API Server和Node之间的桥梁，接收Master API Server分配给它的commands和work，通过kube-apiserver间接与Etcd集群交互，读取配置信息。
-* proxy[负载均衡、路由转发]
+
+第一、proxy[负载均衡、路由转发]：
 
 1.Proxy是为了解决外部网络能够访问跨机器集群中容器提供的应用服务而设计的，运行在每个Node上。
 Proxy提供`TCP/UDP sockets`的proxy，每创建一种Service，Proxy主要从etcd获取Services和Endpoints的配置信息（也可以从file获取），
