@@ -21,15 +21,18 @@
 
 7.依据从Kubernetes Client获取的信息，Scheduler将未分发的Pod分发到可用的Minion/Node节点上。
 
-**Master运行三个组件：**
-* apiserver[资源操作入口]
+#### Master运行三个组件：
+
+**apiserver[资源操作入口]**
+
 作为kubernetes系统的入口，封装了核心对象的增删改查操作，以RESTFul接口方式提供给外部客户和内部组件调用。
 它维护的REST对象将持久化到etcd（一个分布式强一致性的key/value存储）。
 
-* scheduler[集群分发调度器]
+**scheduler[集群分发调度器]**
+
 集群调度器,负责集群的资源调度，为新建的Pod分配机器。
 
-1.Scheduler收集和分析当前Kubernetes集群中所有Minion/Node节点的资源(内存、CPU)负载情况，然后依此分发新建的Pod到Kubernetes集群中可用的节点。
+1.Scheduler收集和分析当前Kubernetes集群中所有Node节点的资源(内存、CPU)负载情况，然后依此分发新建的Pod到Kubernetes集群中可用的节点。
 
 2.实时监测Kubernetes集群中未分发和已分发的所有运行的Pod。
 
