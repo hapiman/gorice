@@ -43,7 +43,7 @@ cd /usr/local/Cellar/kafka/1.0.0
 ``` sh
 # 查看所有的topic
 cd /usr/local/Cellar/kafka/1.0.0
-./bin/kafka-topics --list --zookeeper localhost:2181 
+./bin/kafka-topics --list --zookeeper localhost:2181
 # 查看指定topic
 ./bin/kafka-topics --zookeeper localhost:2181 --describe --topic  test
 # 关于结果分析分析
@@ -197,4 +197,10 @@ Topic: my-replicated-topic	Partition: 0	Leader: 2	Replicas: 1,2,0	Isr: 2,0
 # 再次接收数据，数据没有发送改变
 cd /usr/local/Cellar/kafka/1.0.0
 ./bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic my-replicated-topic --from-beginning
+```
+
+### 遇到的问题
+1.连结不能建立的问题
+```
+[Consumer clientId=consumer-1, groupId=console-consumer-2028] Connection to node -1 (localhost/127.0.0.1:9092) could not be established. Broker may not be available.
 ```
