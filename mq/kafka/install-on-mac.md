@@ -58,7 +58,7 @@ cd /usr/local/Cellar/kafka/1.0.0
 # 详细信息参看 https://blog.csdn.net/lkforce/article/details/77776684
 ```
 
-* 增加分区数
+* 修改topic（如增加分区数，使用--alter）
 ```sh
 cd /usr/local/Cellar/kafka/1.0.0
 ./bin/kafka-topics  --zookeeper localhost:2181 --alter --topic test --partitions 10
@@ -91,7 +91,8 @@ cd /usr/local/Cellar/kafka/1.0.0
 
 * 查看topic各个分区的消息的信息
 
-* 查看topic消费到的offset
+能够看到topic消费到的offset，--time -1表示最大位移 --time -2表示最早位移。
+
 ```sh
 ./bin/kafka-run-class  kafka.tools.GetOffsetShell --broker-list  127.0.0.1:9092 --topic test --time -1
 # test:8:0
@@ -105,6 +106,55 @@ cd /usr/local/Cellar/kafka/1.0.0
 # test:6:0
 # test:0:5
 ```
+
+* Consumer-Groups管理
+
+查看消费者组类型
+```sh
+./bin/kafka-consumer-groups --bootstrap-server localhost:9092 --list
+```
+
+查看消费者组详情
+```sh
+./bin/kafka-consumer-groups --bootstrap-server localhost:9092 --describe --group g-test
+```
+
+重设消费者组位移
+```sh
+# 最早处
+bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group groupname --reset-offsets --all-topics --to-earliest --execute
+# 最新处
+bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group groupname --reset-offsets --all-topics --to-latest --execute
+# 某个位置
+bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group groupname --reset-offsets --all-topics --to-offset 2000 --execute
+# 调整到某个时间之后得最早位移
+bin/kafka-consumer-groups.sh --bootstrap-server localhost:9092 --group groupname --reset-offsets --all-topics --to-datetime 2019-09-15T00:00:00.000
+```
+
+删除消费者组 
+```sh
+./bin/kafka-consumer-groups --zookeeper localhost:2181 --delete --group groupname
+```
+
+读取消费者组消息 
+```sh
+./bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic test 
+--from-beginning
+--consumer-property group.id=g-test
+```
+
+* **三种消费脚本** 
+```sh
+# 一般使用 
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic topicname --from-beginning
+# 指定groupid
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic topicname --from-beginning
+--consumer-property group.id=old-consumer-group
+# 指定分区
+bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic topicname --from-beginning
+--partition 0
+```
+
 
 * 停止运行
 ``` sh
