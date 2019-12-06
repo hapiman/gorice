@@ -1,6 +1,7 @@
 ### Mac上安装kalka
 
 * 直接安装`brew install kafka`
+
 1.会安装`zookeeper`相关环境
 
 2.安装目录`/usr/local/Cellar/kafka/1.0.0`,`1.0.0`是当前kafka的版本，不同时间安装可能不一样
@@ -16,6 +17,9 @@
 `/usr/local/etc/kafka/server.properties` #kafka服务配置
 `/usr/local/etc/kafka/zookeeper.properties` #zookeeper环境配置
 ```
+
+默认情况下，在代码中能够执行发送和接收任务，但是无法在代码中调用成功，需要修改kafka的配置文件`/usr/local/etc/kafka/server.properties`中的`listeners=PLAINTEXT://localhost:9092`行注释去掉，并增加`localhost`字段。
+
 
 * 启动zookeeper
 ```sh
