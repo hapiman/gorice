@@ -114,9 +114,17 @@ cd /usr/local/Cellar/kafka/1.0.0
 ./bin/kafka-consumer-groups --bootstrap-server localhost:9092 --list
 ```
 
-查看消费者组详情
+查看消费者组详情(能够查看消费的进度，分区等数据)
 ```sh
 ./bin/kafka-consumer-groups --bootstrap-server localhost:9092 --describe --group g-test
+```
+结果：
+```
+Consumer group 'g-test' has no active members.
+
+GROUP           TOPIC           PARTITION  CURRENT-OFFSET  LOG-END-OFFSET  LAG             CONSUMER-ID     HOST            CLIENT-ID
+g-test          test            1          955             2563            1608            -               -               -
+g-test          test            0          56657           58265           1608            -               -               -
 ```
 
 重设消费者组位移
