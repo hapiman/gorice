@@ -128,6 +128,12 @@ kubectl exec -it $app bash
 
 # 查看某个 Pod 的日志
 kubectl logs $app
+
+# 查看当前组件
+kubectl get componentstatus
+
+# 查看当前的namespaces
+kubectl get deployment --all-namespaces
 ```
 
 ### 基本概念
@@ -140,10 +146,30 @@ k8s中的容器api对象都是通过Label进行 ,label的实质是一系列的k/
 label是`replication controller`和`service`运行的基础
 二者通过label进行判别node上运行的pod。
 
-Replication Controller：
+Replication Controller(`RC`)：
 
-Recplication Controller用来管理pod的副本，保证集群中存在置顶数量的pod副本，集群中副本的数量大于置顶数量，则会杀掉置顶数量之外的多余容器数量，反之则会启动少于置顶数量个数的容器，保证数量不变，**replication controller**是实现*弹性伸缩*、*动态扩容*和*滚动升级*的核心。
+Recplication Controller用来管理Pod的副本，保证集群中存在置顶数量的pod副本，集群中副本的数量大于置顶数量，则会杀掉置顶数量之外的多余容器数量，反之则会启动少于置顶数量个数的容器，保证数量不变，**RC**是实现`弹性伸缩`、`动态扩容`和`滚动升级`的核心。
 
+`ReplicaSet`：
+
+升级版本的`Replication Controller`，负责控制集群中运行的`pod`的数量。虽然`ReplicaSet`可以被单独使用，但是目前它多被`Deployment`用于进行`Pod`的创建、更新与删除。
+
+`Deployment`：
+
+Kubernetes提供了一种更加简单的更新RC和Pod的机制，叫做`Deployment`。
+通过在`Deployment`中描述你所期望的集群状态，`Deployment Controller`会将现在的集群状态在一个可控的速度下逐步更新成你所期望的集群状态。
+为了保证pod的数量和健康，90%的功能与`Replication Controller`完全一样，新一代的`Replication Controller`，功能更加完善。
+
+`Context`：
+
+`kubeconfig`文件可以包含`context`元素，每个`context`都是一个由（`集群、命名空间、用户`）描述的三元组。您可以使用 `kubectl config use-context`去设置当前的`context`。命令行工具`kubectl`与当前`context`中指定的集群和命名空间进行通信，并且使用当前`context`中包含的用户凭证。
+
+`Job`：
+
+从程序的运行形态上来区分，我们可以将Pod分为两类：`长时运行服务`（jboss、mysql等）和`一次性任务`（数据计算、测试）。
+RC创建的Pod都是长时运行的服务，而Job创建的Pod都是一次性任务。
+在Job的定义中，restartPolicy（重启策略）只能是Never和OnFailure。
+Job可以控制一次性任务的Pod的完成次数（Job-->spec-->completions）和并发执行数（Job-->spec-->parallelism），当Pod成功执行指定次数后，即认为Job执行完毕。
 
 
 

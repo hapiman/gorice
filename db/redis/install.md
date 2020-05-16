@@ -10,9 +10,28 @@
 
 设置后台启动，修改`/usr/local/redis/redis.conf`文件，修改`daemonize no`改为`daemonize yes`
 
+编译`cd /usr/local/redis && make`，编译完成之后，如果没有报错，使用`make test`检查依赖项是否完全安装。
+
+> 安装过程中可能会遇到`You need tcl 8.5 or newer in order to run the Redis test`错误
+
+解决方案如下：
+
+```sh 
+wget http://downloads.sourceforge.net/tcl/tcl8.6.1-src.tar.gz  
+sudo tar xzvf tcl8.6.1-src.tar.gz  -C /usr/local/  
+cd  /usr/local/tcl8.6.1/unix/  
+sudo ./configure  
+sudo make  
+sudo make install
+```
+
+
 使用`/usr/local/redis/src/redis-server /usr/local/redis/redis.conf`启动redis数据库
 
 使用`/usr/local/redis/src/redis-cli shutdown` 关闭数据库
+
+
+
 
 ## 设置redis开机启动
 
